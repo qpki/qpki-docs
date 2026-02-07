@@ -41,95 +41,126 @@ export default defineConfig({
 				{
 					label: 'navLinks',
 					items: [
-						{ label: 'QPKI', link: '/pki/quick-start/' },
-						{ label: 'QLAB', link: '/lab/overview/' },
+						{ label: 'QPKI', link: '/qpki/getting-started/quick-start/' },
+						{ label: 'QLAB', link: '/qlab/overview/' },
 					],
 				},
 				{
-					label: 'QPKI Documentation',
+					label: 'qpki',
 					items: [
-						{ label: 'Quick Start', slug: 'pki/quick-start' },
-						{ slug: 'pki/ca' },
-						{ slug: 'pki/keys' },
-						{ slug: 'pki/credentials' },
-						{ slug: 'pki/profiles' },
+						{
+							label: 'Getting Started',
+							items: [
+								{ label: 'Quick Start', slug: 'qpki/getting-started/quick-start' },
+								{ slug: 'qpki/getting-started/concepts' },
+							],
+						},
+						{
+							label: 'Build Your PKI',
+							items: [
+								{ slug: 'qpki/build-pki/ca' },
+								{ slug: 'qpki/build-pki/certificates' },
+								{ slug: 'qpki/build-pki/crl' },
+								{ slug: 'qpki/build-pki/keys' },
+								{ slug: 'qpki/build-pki/profiles' },
+								{ slug: 'qpki/build-pki/hsm' },
+							],
+						},
+						{
+							label: 'End Entities',
+							items: [
+								{ slug: 'qpki/end-entities/credentials' },
+							],
+						},
 						{
 							label: 'Services',
 							items: [
-								{ slug: 'pki/services/ocsp' },
-								{ slug: 'pki/services/tsa' },
-								{ slug: 'pki/services/cms' },
-								{ slug: 'pki/services/cose' },
+								{ slug: 'qpki/services/ocsp' },
+								{ slug: 'qpki/services/tsa' },
+								{ slug: 'qpki/services/cms' },
+								{ slug: 'qpki/services/cose' },
+								{ slug: 'qpki/services/audit' },
+							],
+						},
+						{
+							label: 'Migration',
+							items: [
+								{ slug: 'qpki/migration/crypto-agility' },
+								{ slug: 'qpki/migration/hybrid' },
 							],
 						},
 						{
 							label: 'Reference',
 							collapsed: true,
 							items: [
-								{ slug: 'pki/reference/concepts' },
-								{ slug: 'pki/reference/cli-reference' },
-								{ slug: 'pki/reference/architecture' },
-								{ slug: 'pki/reference/hsm' },
-								{ slug: 'pki/reference/audit' },
-								{ slug: 'pki/reference/crypto-agility' },
-								{ slug: 'pki/reference/troubleshooting' },
-								{ slug: 'pki/reference/glossary' },
+								{ slug: 'qpki/reference/cli-reference' },
+								{ slug: 'qpki/reference/standards' },
+								{ slug: 'qpki/reference/troubleshooting' },
+								{ slug: 'qpki/reference/glossary' },
 							],
 						},
 						{
 							label: 'Development',
 							collapsed: true,
 							items: [
-								{ slug: 'pki/dev/contributing' },
-								{ slug: 'pki/dev/testing' },
-								{ slug: 'pki/dev/interoperability' },
+								{ slug: 'qpki/dev/architecture' },
+								{ slug: 'qpki/dev/contributing' },
+								{ slug: 'qpki/dev/testing' },
+								{ slug: 'qpki/dev/interoperability' },
 							],
 						},
 					],
 				},
 				{
-					label: 'QLAB Learning',
+					label: 'qlab',
 					items: [
-						{ label: 'Overview', slug: 'lab/overview' },
+						{ label: 'Overview', slug: 'qlab/overview' },
 						{
-							label: 'Discovery',
+							label: 'Awareness',
 							items: [
-								{ slug: 'lab/00-revelation/readme' },
-								{ slug: 'lab/01-quickstart/readme' },
+								{ slug: 'qlab/journey/00-revelation/readme' },
+								{ slug: 'qlab/journey/01-quickstart/readme' },
 							],
 						},
 						{
-							label: 'Building PKI',
+							label: 'Build',
 							items: [
-								{ slug: 'lab/02-full-chain/readme' },
-								{ slug: 'lab/03-hybrid/readme' },
+								{ slug: 'qlab/journey/02-full-chain/readme' },
+								{ slug: 'qlab/journey/03-hybrid/readme' },
 							],
 						},
 						{
 							label: 'Lifecycle',
 							items: [
-								{ slug: 'lab/04-revocation/readme' },
-								{ slug: 'lab/05-ocsp/readme' },
+								{ slug: 'qlab/journey/04-revocation/readme' },
+								{ slug: 'qlab/journey/05-ocsp/readme' },
 							],
 						},
 						{
 							label: 'Long-term Signatures',
 							items: [
-								{ slug: 'lab/06-code-signing/readme' },
-								{ slug: 'lab/07-timestamping/readme' },
-								{ slug: 'lab/08-ltv-signatures/readme' },
+								{ slug: 'qlab/journey/06-code-signing/readme' },
+								{ slug: 'qlab/journey/07-timestamping/readme' },
+								{ slug: 'qlab/journey/08-ltv-signatures/readme' },
 							],
 						},
 						{
 							label: 'Encryption',
 							items: [
-								{ slug: 'lab/09-cms-encryption/readme' },
+								{ slug: 'qlab/journey/09-cms-encryption/readme' },
 							],
 						},
 						{
 							label: 'Migration',
 							items: [
-								{ slug: 'lab/10-crypto-agility/readme' },
+								{ slug: 'qlab/journey/10-crypto-agility/readme' },
+							],
+						},
+						{
+							label: 'Reference',
+							collapsed: true,
+							items: [
+								{ slug: 'qlab/docs/glossary' },
 							],
 						},
 					],

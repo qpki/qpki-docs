@@ -31,3 +31,13 @@ a {
 	text-decoration-thickness: 1px;
 	text-underline-offset: 2px;
 }
+
+/* Hide GitHub navigation footer in QLAB journeys - Starlight has its own */
+.sl-markdown-content > p:last-of-type:has(a[href^="../"]):has(a[href*="README.md"]) {
+	display: none;
+}
+
+/* Hide first H1 - Starlight shows title from frontmatter, H1 is for GitHub */
+.sl-markdown-content > .sl-heading-wrapper.level-h1:first-child {
+	display: none;
+}
