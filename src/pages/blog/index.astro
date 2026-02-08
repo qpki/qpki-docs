@@ -3,6 +3,7 @@
  * QentriQ Blog Page
  */
 import Header from '../../components/Header.astro';
+import ColorSwitcher from '../../components/ColorSwitcher.astro';
 import '../../styles/tokens.css';
 import '../../styles/landing.css';
 ---
@@ -45,18 +46,18 @@ import '../../styles/landing.css';
     .coming-soon {
       display: inline-block;
       padding: var(--q-space-2, 0.5rem) var(--q-space-4, 1rem);
-      background: rgba(52, 71, 255, 0.2);
-      border: 1px solid var(--sl-color-accent, #3447ff);
+      background: rgba(233, 30, 99, 0.2);
+      border: 1px solid var(--sl-color-accent, #E91E63);
       border-radius: var(--q-radius-md, 0.5rem);
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
       font-size: 0.875rem;
       font-weight: 500;
     }
 
     :root[data-theme='light'] .coming-soon {
-      background: rgba(0, 101, 218, 0.1);
-      border-color: var(--sl-color-accent, #0065da);
-      color: var(--sl-color-accent, #0065da);
+      background: rgba(194, 24, 91, 0.1);
+      border-color: var(--sl-color-accent, #C2185B);
+      color: var(--sl-color-accent, #C2185B);
     }
   </style>
 </head>
@@ -65,7 +66,7 @@ import '../../styles/landing.css';
   <Header />
 
   <!-- Hero -->
-  <section class="landing-hero">
+  <section class="landing-hero landing-hero--centered">
     <h1 class="animate-in">Blog</h1>
     <p class="animate-in" style="animation-delay: 0.1s">
       News, tutorials, and updates about post-quantum cryptography.
@@ -85,8 +86,10 @@ import '../../styles/landing.css';
   <footer class="landing-footer">
     <p>
       Open source under Apache 2.0 license.
-      <a href="https://github.com/remiblancher/post-quantum-pki">Contribute on GitHub</a>
+      <a href="https://github.com/qentriq">Contribute on GitHub</a>
     </p>
   </footer>
+
+  <ColorSwitcher />
 </body>
 </html>

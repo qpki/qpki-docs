@@ -6,6 +6,7 @@
 import FeatureCard from '../components/FeatureCard.astro';
 import CardGrid from '../components/CardGrid.astro';
 import Header from '../components/Header.astro';
+import ColorSwitcher from '../components/ColorSwitcher.astro';
 import '../styles/tokens.css';
 import '../styles/landing.css';
 ---
@@ -32,7 +33,7 @@ import '../styles/landing.css';
     .about-section h2 {
       font-size: 1.75rem;
       margin-bottom: var(--q-space-6, 1.5rem);
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
     }
 
     .about-section p {
@@ -46,14 +47,14 @@ import '../styles/landing.css';
     }
 
     :root[data-theme='light'] .about-section h2 {
-      color: var(--sl-color-accent, #0065da);
+      color: var(--sl-color-accent, #C2185B);
     }
 
     /* Timeline */
     .timeline {
       position: relative;
       padding-left: var(--q-space-8, 2rem);
-      border-left: 2px solid var(--sl-color-accent, #3447ff);
+      border-left: 2px solid var(--sl-color-accent, #E91E63);
       margin-top: var(--q-space-8, 2rem);
     }
 
@@ -69,7 +70,7 @@ import '../styles/landing.css';
       top: 0.25rem;
       width: 12px;
       height: 12px;
-      background: var(--sl-color-accent, #3447ff);
+      background: var(--sl-color-accent, #E91E63);
       border-radius: 50%;
     }
 
@@ -84,14 +85,14 @@ import '../styles/landing.css';
     }
 
     .timeline-item .date {
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
       font-size: 0.9rem;
       margin-bottom: var(--q-space-2, 0.5rem);
       font-weight: 600;
     }
 
     :root[data-theme='light'] .timeline-item .date {
-      color: var(--sl-color-accent, #0065da);
+      color: var(--sl-color-accent, #C2185B);
     }
 
     .timeline-item p {
@@ -108,7 +109,7 @@ import '../styles/landing.css';
     }
 
     .project-card:hover {
-      border-color: var(--sl-color-accent, #3447ff);
+      border-color: var(--sl-color-accent, #E91E63);
     }
 
     :root[data-theme='light'] .project-card {
@@ -136,7 +137,7 @@ import '../styles/landing.css';
     }
 
     .project-card a {
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
       font-size: 0.9rem;
     }
 
@@ -145,7 +146,7 @@ import '../styles/landing.css';
     }
 
     :root[data-theme='light'] .project-card a {
-      color: var(--sl-color-accent, #0065da);
+      color: var(--sl-color-accent, #C2185B);
     }
 
     .projects-grid {
@@ -161,7 +162,7 @@ import '../styles/landing.css';
   <Header />
 
   <!-- Hero -->
-  <section class="landing-hero">
+  <section class="landing-hero landing-hero--centered">
     <h1 class="animate-in">About QentriQ</h1>
     <p class="animate-in" style="animation-delay: 0.1s">
       An open-source initiative to make quantum-safe PKI accessible to everyone,
@@ -198,12 +199,12 @@ import '../styles/landing.css';
         <div class="project-card">
           <h3>QPKI</h3>
           <p>Complete post-quantum PKI toolkit: CA, OCSP, TSA, CMS, and more. Single binary, CLI-first.</p>
-          <a href="https://github.com/remiblancher/post-quantum-pki">github.com/remiblancher/post-quantum-pki</a>
+          <a href="https://github.com/qentriq">github.com/qentriq</a>
         </div>
         <div class="project-card">
           <h3>QLAB</h3>
           <p>Hands-on learning journey from quantum threats to production-ready crypto-agile infrastructure.</p>
-          <a href="https://github.com/remiblancher/post-quantum-pki-lab">github.com/remiblancher/post-quantum-pki-lab</a>
+          <a href="https://github.com/qentriq-lab">github.com/qentriq-lab</a>
         </div>
       </div>
     </section>
@@ -241,8 +242,10 @@ import '../styles/landing.css';
   <footer class="landing-footer">
     <p>
       Open source under Apache 2.0 license.
-      <a href="https://github.com/remiblancher/post-quantum-pki">Contribute on GitHub</a>
+      <a href="https://github.com/qentriq">Contribute on GitHub</a>
     </p>
   </footer>
+
+  <ColorSwitcher />
 </body>
 </html>

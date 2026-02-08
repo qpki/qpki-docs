@@ -11,11 +11,23 @@
   font-family: system-ui, -apple-system, sans-serif;
   background-color: rgb(23, 24, 28);
   background-image:
-    radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%),
-    radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%);
-  background-size: 1192.8px 2410px, 1192.8px 2410px;
-  background-position: -681.6px -602.5px, 340.8px -1205px;
-  background-repeat: no-repeat;
+    /* Grid pattern */
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    /* Radial gradients */
+    radial-gradient(rgb(74, 26, 53), rgba(0, 0, 0, 0) 50%),
+    radial-gradient(rgb(74, 26, 53), rgba(0, 0, 0, 0) 50%);
+  background-size:
+    64px 64px,
+    64px 64px,
+    1192.8px 2410px,
+    1192.8px 2410px;
+  background-position:
+    0 0,
+    0 0,
+    -681.6px -602.5px,
+    340.8px -1205px;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
   color: var(--q-gray-8, #f4f4f5);
   line-height: 1.6;
   min-height: 100vh;
@@ -30,11 +42,23 @@
 :root[data-theme='light'] .landing-page {
   background-color: #ffffff;
   background-image:
-    radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%),
-    radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%);
-  background-size: 1192.8px 2410px, 1192.8px 2410px;
-  background-position: -681.6px -602.5px, 340.8px -1205px;
-  background-repeat: no-repeat;
+    /* Grid pattern */
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    /* Radial gradients */
+    radial-gradient(rgb(252, 228, 236), rgba(0, 0, 0, 0) 50%),
+    radial-gradient(rgb(252, 228, 236), rgba(0, 0, 0, 0) 50%);
+  background-size:
+    64px 64px,
+    64px 64px,
+    1192.8px 2410px,
+    1192.8px 2410px;
+  background-position:
+    0 0,
+    0 0,
+    -681.6px -602.5px,
+    340.8px -1205px;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
   color: var(--q-gray-1, #020202);
 }
 
@@ -123,6 +147,17 @@
   margin: 0 auto;
 }
 
+/* Centered variant for pages without logo */
+.landing-hero--centered {
+  flex-direction: column;
+  text-align: center;
+}
+
+.landing-hero--centered p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .landing-hero-content {
   flex: 1;
   text-align: left;
@@ -188,12 +223,12 @@
 }
 
 .btn-primary {
-  background: rgb(59, 130, 246);
+  background: rgb(233, 30, 99);
   color: white;
 }
 
 .btn-primary:hover {
-  background: rgb(37, 99, 235);
+  background: rgb(194, 24, 91);
 }
 
 .btn-secondary {
@@ -208,12 +243,12 @@
 }
 
 :root[data-theme='light'] .btn-primary {
-  background: rgb(0, 101, 218);
+  background: rgb(194, 24, 91);
   color: white;
 }
 
 :root[data-theme='light'] .btn-primary:hover {
-  background: rgb(0, 82, 178);
+  background: rgb(136, 14, 79);
 }
 
 :root[data-theme='light'] .btn-secondary {
@@ -283,7 +318,7 @@
 }
 
 .landing-code-block .prompt {
-  color: var(--sl-color-accent-high, #60a5fa);
+  color: var(--sl-color-accent-high, #F48FB1);
 }
 
 .landing-code-block .command {
@@ -313,7 +348,7 @@
 }
 
 .landing-footer a {
-  color: var(--sl-color-accent-high, #60a5fa);
+  color: var(--sl-color-accent-high, #F48FB1);
 }
 
 .landing-footer a:hover {
@@ -325,7 +360,7 @@
 }
 
 :root[data-theme='light'] .landing-footer a {
-  color: var(--sl-color-accent, #0065da);
+  color: var(--sl-color-accent, #C2185B);
 }
 
 /* ========================================
@@ -404,3 +439,40 @@
 .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
 .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
 .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* ========================================
+ * BLUE PALETTE MODE (for comparison)
+ * Activated by .blue-palette class on body
+ * ======================================== */
+
+body.blue-palette.landing-page {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%),
+    radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%);
+}
+
+:root[data-theme='light'] body.blue-palette.landing-page {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%),
+    radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%);
+}
+
+body.blue-palette .btn-primary {
+  background: rgb(59, 130, 246);
+}
+
+body.blue-palette .btn-primary:hover {
+  background: rgb(37, 99, 235);
+}
+
+:root[data-theme='light'] body.blue-palette .btn-primary {
+  background: rgb(0, 101, 218);
+}
+
+:root[data-theme='light'] body.blue-palette .btn-primary:hover {
+  background: rgb(0, 82, 178);
+}

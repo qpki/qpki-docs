@@ -28,21 +28,25 @@ const Tag = href ? 'a' : 'div';
     flex-direction: column;
     gap: var(--q-space-3, 0.75rem);
     padding: var(--q-space-6, 1.5rem);
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(23, 24, 28, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(233, 30, 99, 0.35);
     border-radius: var(--q-radius-lg, 0.75rem);
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.1);
     text-decoration: none;
     color: inherit;
     transition:
       transform var(--q-transition-normal, 200ms ease),
       border-color var(--q-transition-normal, 200ms ease),
+      box-shadow var(--q-transition-normal, 200ms ease),
       background var(--q-transition-normal, 200ms ease);
   }
 
   .feature-card:hover {
     transform: translateY(-2px);
-    border-color: var(--sl-color-accent, #3447ff);
-    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--sl-color-accent, #E91E63);
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.2);
+    background: rgba(23, 24, 28, 0.95);
   }
 
   .feature-card-icon {
@@ -65,12 +69,15 @@ const Tag = href ? 'a' : 'div';
 
   /* Light mode */
   :root[data-theme='light'] .feature-card {
-    background: transparent;
-    border-color: rgba(194, 217, 250, 0.4);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(194, 24, 91, 0.3);
+    box-shadow: 0 0 20px rgba(194, 24, 91, 0.08);
   }
 
   :root[data-theme='light'] .feature-card:hover {
-    background: rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--sl-color-accent, #C2185B);
+    box-shadow: 0 0 30px rgba(194, 24, 91, 0.15);
   }
 
   :root[data-theme='light'] .feature-card-title {
@@ -79,5 +86,26 @@ const Tag = href ? 'a' : 'div';
 
   :root[data-theme='light'] .feature-card-body {
     color: var(--q-gray-5, #64646c);
+  }
+
+  /* Blue palette mode */
+  :global(body.blue-palette) .feature-card {
+    border-color: rgba(52, 71, 255, 0.35);
+    box-shadow: 0 0 20px rgba(52, 71, 255, 0.1);
+  }
+
+  :global(body.blue-palette) .feature-card:hover {
+    border-color: #3447ff;
+    box-shadow: 0 0 30px rgba(52, 71, 255, 0.2);
+  }
+
+  :global(:root[data-theme='light'] body.blue-palette) .feature-card {
+    border-color: rgba(0, 101, 218, 0.3);
+    box-shadow: 0 0 20px rgba(0, 101, 218, 0.08);
+  }
+
+  :global(:root[data-theme='light'] body.blue-palette) .feature-card:hover {
+    border-color: #0065da;
+    box-shadow: 0 0 30px rgba(0, 101, 218, 0.15);
   }
 </style>

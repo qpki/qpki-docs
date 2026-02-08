@@ -24,7 +24,7 @@ export default defineConfig({
 				replacesTitle: false,
 			},
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/remiblancher/post-quantum-pki' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/qentriq' },
 			],
 			plugins: [
 				starlightUtils({

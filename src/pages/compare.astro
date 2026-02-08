@@ -4,6 +4,7 @@
  * Redesigned with Biome-inspired design system
  */
 import Header from '../components/Header.astro';
+import ColorSwitcher from '../components/ColorSwitcher.astro';
 import '../styles/tokens.css';
 import '../styles/landing.css';
 ---
@@ -30,11 +31,11 @@ import '../styles/landing.css';
     .compare-section h2 {
       font-size: 1.75rem;
       margin-bottom: var(--q-space-4, 1rem);
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
     }
 
     :root[data-theme='light'] .compare-section h2 {
-      color: var(--sl-color-accent, #0065da);
+      color: var(--sl-color-accent, #C2185B);
     }
 
     .compare-section > p {
@@ -103,27 +104,27 @@ import '../styles/landing.css';
     }
 
     .highlight {
-      background: rgba(52, 71, 255, 0.1);
+      background: rgba(233, 30, 99, 0.1);
     }
 
     .highlight th,
     .highlight td:first-child {
-      color: var(--sl-color-accent-high, #60a5fa);
+      color: var(--sl-color-accent-high, #F48FB1);
     }
 
     :root[data-theme='light'] .highlight {
-      background: rgba(0, 101, 218, 0.1);
+      background: rgba(194, 24, 91, 0.1);
     }
 
     :root[data-theme='light'] .highlight th,
     :root[data-theme='light'] .highlight td:first-child {
-      color: var(--sl-color-accent, #0065da);
+      color: var(--sl-color-accent, #C2185B);
     }
 
     /* Note */
     .note {
       background: var(--q-gray-3, rgba(255, 255, 255, 0.02));
-      border-left: 3px solid var(--sl-color-accent, #3447ff);
+      border-left: 3px solid var(--sl-color-accent, #E91E63);
       padding: var(--q-space-4, 1rem) var(--q-space-6, 1.5rem);
       margin: var(--q-space-8, 2rem) 0;
       font-size: 0.95rem;
@@ -154,13 +155,13 @@ import '../styles/landing.css';
     .cta {
       text-align: center;
       padding: var(--q-space-12, 3rem);
-      background: rgba(52, 71, 255, 0.1);
+      background: rgba(233, 30, 99, 0.1);
       border-radius: var(--q-radius-xl, 1rem);
       margin-top: var(--q-space-8, 2rem);
     }
 
     :root[data-theme='light'] .cta {
-      background: rgba(0, 101, 218, 0.1);
+      background: rgba(194, 24, 91, 0.1);
     }
 
     .cta h2 {
@@ -198,7 +199,7 @@ import '../styles/landing.css';
   <Header />
 
   <!-- Hero -->
-  <section class="landing-hero">
+  <section class="landing-hero landing-hero--centered">
     <h1 class="animate-in">Compare Solutions</h1>
     <p class="animate-in" style="animation-delay: 0.1s">
       How QentriQ compares to other post-quantum cryptography implementations
@@ -364,8 +365,10 @@ import '../styles/landing.css';
   <footer class="landing-footer">
     <p>
       Open source under Apache 2.0 license.
-      <a href="https://github.com/remiblancher/post-quantum-pki">Contribute on GitHub</a>
+      <a href="https://github.com/qentriq">Contribute on GitHub</a>
     </p>
   </footer>
+
+  <ColorSwitcher />
 </body>
 </html>

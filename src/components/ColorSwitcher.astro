@@ -1,0 +1,122 @@
+---
+/**
+ * ColorSwitcher - Toggle between Rose Quantum and Blue palette
+ * For comparison purposes only
+ */
+---
+
+<button class="color-switcher" id="color-switcher" title="Comparer les palettes (Rose Quantum)">
+  🎨 <span class="color-label">Rose</span>
+</button>
+
+<style>
+  .color-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 50px;
+    border: 2px solid #E91E63;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .color-switcher:hover {
+    transform: scale(1.05);
+  }
+
+  .color-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  /* Blue mode overrides - applied when .blue-palette is on body */
+  :global(body.blue-palette) .color-switcher {
+    border-color: #3447ff;
+  }
+
+  :global(body.blue-palette) .landing-page {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%),
+      radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%) !important;
+  }
+
+  :global(:root[data-theme='light'] body.blue-palette) .landing-page {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%),
+      radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%) !important;
+  }
+
+  :global(body.blue-palette) .btn-primary {
+    background: rgb(59, 130, 246) !important;
+  }
+
+  :global(body.blue-palette) .btn-primary:hover {
+    background: rgb(37, 99, 235) !important;
+  }
+
+  :global(:root[data-theme='light'] body.blue-palette) .btn-primary {
+    background: rgb(0, 101, 218) !important;
+  }
+
+  :global(:root[data-theme='light'] body.blue-palette) .btn-primary:hover {
+    background: rgb(0, 82, 178) !important;
+  }
+</style>
+
+<script is:inline>
+  const switcher = document.getElementById('color-switcher');
+  const label = switcher.querySelector('.color-label');
+
+  const blueVars = {
+    '--sl-color-accent-low': '#131e4f',
+    '--sl-color-accent': '#3447ff',
+    '--sl-color-accent-high': '#60a5fa'
+  };
+  const blueVarsLight = {
+    '--sl-color-accent-low': '#c2d9fa',
+    '--sl-color-accent': '#0065da',
+    '--sl-color-accent-high': '#093066'
+  };
+  const roseVars = {
+    '--sl-color-accent-low': '#4a1a35',
+    '--sl-color-accent': '#E91E63',
+    '--sl-color-accent-high': '#F48FB1'
+  };
+  const roseVarsLight = {
+    '--sl-color-accent-low': '#FCE4EC',
+    '--sl-color-accent': '#C2185B',
+    '--sl-color-accent-high': '#880E4F'
+  };
+
+  let isBlue = false;
+
+  switcher.addEventListener('click', () => {
+    isBlue = !isBlue;
+    const isDark = document.documentElement.dataset.theme !== 'light';
+    const vars = isBlue ? (isDark ? blueVars : blueVarsLight) : (isDark ? roseVars : roseVarsLight);
+
+    // Apply CSS variables
+    Object.entries(vars).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+
+    // Toggle class for hardcoded colors
+    document.body.classList.toggle('blue-palette', isBlue);
+
+    // Update button
+    label.textContent = isBlue ? 'Bleu' : 'Rose';
+    switcher.title = isBlue ? 'Mode Bleu (ancien) - Cliquer pour Rose' : 'Mode Rose Quantum - Cliquer pour Bleu';
+  });
+</script>

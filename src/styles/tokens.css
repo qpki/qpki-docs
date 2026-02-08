@@ -5,12 +5,12 @@
 
 :root {
   /* ========================================
-   * ACCENT COLORS (Biome Blue)
+   * ACCENT COLORS (Rose Quantum)
    * Dark mode defaults
    * ======================================== */
-  --sl-color-accent-low: #131e4f;
-  --sl-color-accent: #3447ff;
-  --sl-color-accent-high: #60a5fa;
+  --sl-color-accent-low: #4a1a35;
+  --sl-color-accent: #E91E63;
+  --sl-color-accent-high: #F48FB1;
 
   /* ========================================
    * GRAY SCALE (Biome-inspired)
@@ -87,16 +87,16 @@
  * LIGHT MODE OVERRIDES
  * ======================================== */
 :root[data-theme='light'] {
-  --sl-color-accent-low: #c2d9fa;
-  --sl-color-accent: #0065da;
-  --sl-color-accent-high: #093066;
+  --sl-color-accent-low: #FCE4EC;
+  --sl-color-accent: #C2185B;
+  --sl-color-accent-high: #880E4F;
 }
 
 /* Auto mode - respect system preference */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --sl-color-accent-low: #c2d9fa;
-    --sl-color-accent: #0065da;
-    --sl-color-accent-high: #093066;
+    --sl-color-accent-low: #FCE4EC;
+    --sl-color-accent: #C2185B;
+    --sl-color-accent-high: #880E4F;
   }
 }
