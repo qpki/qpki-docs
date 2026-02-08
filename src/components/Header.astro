@@ -19,7 +19,7 @@ import ThemeToggle from './ThemeToggle.astro';
     <div class="header-links">
       <a href="/qpki/getting-started/quick-start/" class="header-link">Docs</a>
       <a href="/qlab/overview/" class="header-link">Playground</a>
-      <a href="/compare/" class="header-link">Compare</a>
+      <a href="/suite/" class="header-link">Suite</a>
       <a href="/about/" class="header-link">About</a>
       <a href="/blog/" class="header-link">Blog</a>
     </div>
@@ -40,15 +40,15 @@ import ThemeToggle from './ThemeToggle.astro';
   .header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: rgba(23, 24, 28, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: var(--sl-z-index-navbar, 10);
+    min-height: var(--sl-nav-height, 3.5rem);
+    background: var(--sl-color-bg-nav, hsl(224, 14%, 16%));
+    border-bottom: 1px solid var(--sl-color-hairline-light, rgba(255, 255, 255, 0.1));
   }
 
   :root[data-theme='light'] .header {
-    background: rgba(255, 255, 255, 0.95);
-    border-bottom-color: rgba(0, 0, 0, 0.1);
+    background: var(--sl-color-bg-nav, hsl(224, 19%, 97%));
+    border-bottom-color: var(--sl-color-hairline-light, rgba(0, 0, 0, 0.1));
   }
 
   .header-nav {
@@ -57,8 +57,8 @@ import ThemeToggle from './ThemeToggle.astro';
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.75rem 2rem;
-    gap: 2rem;
+    padding: var(--sl-nav-pad-y, 0.75rem) var(--sl-nav-pad-x, 1rem);
+    gap: var(--sl-nav-gap, 1rem);
   }
 
   .header-logo {
@@ -146,12 +146,17 @@ import ThemeToggle from './ThemeToggle.astro';
     fill: #3447ff;
   }
 
-  @media (max-width: 639px) {
-    .header-nav {
-      padding: 0.75rem 1rem;
-      gap: 1rem;
+  /* Desktop: match Starlight's 50em breakpoint */
+  @media (min-width: 50em) {
+    .header {
+      min-height: var(--sl-nav-height, 4rem);
     }
+    .header-nav {
+      padding: var(--sl-nav-pad-y, 0.75rem) var(--sl-nav-pad-x, 1.5rem);
+    }
+  }
 
+  @media (max-width: 639px) {
     .header-links {
       gap: 1rem;
     }
