@@ -11,23 +11,15 @@
   font-family: system-ui, -apple-system, sans-serif;
   background-color: rgb(23, 24, 28);
   background-image:
-    /* Grid pattern */
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    /* Radial gradients */
     radial-gradient(rgb(74, 26, 53), rgba(0, 0, 0, 0) 50%),
     radial-gradient(rgb(74, 26, 53), rgba(0, 0, 0, 0) 50%);
   background-size:
-    64px 64px,
-    64px 64px,
     1192.8px 2410px,
     1192.8px 2410px;
   background-position:
-    0 0,
-    0 0,
     -681.6px -602.5px,
     340.8px -1205px;
-  background-repeat: repeat, repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat;
   color: var(--q-gray-8, #f4f4f5);
   line-height: 1.6;
   min-height: 100vh;
@@ -42,23 +34,15 @@
 :root[data-theme='light'] .landing-page {
   background-color: #ffffff;
   background-image:
-    /* Grid pattern */
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    /* Radial gradients */
     radial-gradient(rgb(252, 228, 236), rgba(0, 0, 0, 0) 50%),
     radial-gradient(rgb(252, 228, 236), rgba(0, 0, 0, 0) 50%);
   background-size:
-    64px 64px,
-    64px 64px,
     1192.8px 2410px,
     1192.8px 2410px;
   background-position:
-    0 0,
-    0 0,
     -681.6px -602.5px,
     340.8px -1205px;
-  background-repeat: repeat, repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat;
   color: var(--q-gray-1, #020202);
 }
 
@@ -177,7 +161,7 @@
 
 .landing-hero h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: var(--q-space-6, 1.5rem);
   color: var(--q-gray-8, #f4f4f5);
   line-height: 1.1;
@@ -211,7 +195,7 @@
 
 .btn {
   padding: 0.75rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all var(--q-transition-fast, 150ms ease);
@@ -274,7 +258,7 @@
 
 .landing-section h2 {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: var(--q-space-4, 1rem);
   text-align: center;
 }
@@ -447,16 +431,12 @@
 
 body.blue-palette.landing-page {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%),
     radial-gradient(rgb(19, 30, 79), rgba(0, 0, 0, 0) 50%);
 }
 
 :root[data-theme='light'] body.blue-palette.landing-page {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%),
     radial-gradient(rgb(194, 217, 250), rgba(0, 0, 0, 0) 50%);
 }

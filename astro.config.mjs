@@ -44,7 +44,7 @@ export default defineConfig({
 				{
 					label: 'navLinks',
 					items: [
-						{ label: 'QPKI', link: '/qpki/getting-started/pki-basics/' },
+						{ label: 'QPKI', link: '/qpki/getting-started/installation/' },
 						{ label: 'QLAB', link: '/qlab/overview/' },
 					],
 				},
@@ -54,20 +54,19 @@ export default defineConfig({
 						{
 							label: 'Getting Started',
 							items: [
-								{ slug: 'qpki/getting-started/pki-basics' },
-								{ slug: 'qpki/getting-started/post-quantum' },
+								{ slug: 'qpki/getting-started/installation' },
 								{ label: 'Quick Start', slug: 'qpki/getting-started/quick-start' },
+								{ slug: 'qpki/getting-started/post-quantum' },
 							],
 						},
 						{
-							label: 'Build Your PKI',
+							label: 'Core PKI',
 							items: [
-								{ slug: 'qpki/build-pki/ca' },
-								{ slug: 'qpki/build-pki/certificates' },
-								{ slug: 'qpki/build-pki/crl' },
-								{ slug: 'qpki/build-pki/keys' },
-								{ slug: 'qpki/build-pki/profiles' },
-								{ slug: 'qpki/build-pki/hsm' },
+								{ slug: 'qpki/core-pki/ca' },
+								{ slug: 'qpki/core-pki/profiles' },
+								{ label: 'Keys & CSR', slug: 'qpki/core-pki/keys' },
+								{ slug: 'qpki/core-pki/certificates' },
+								{ slug: 'qpki/core-pki/crl' },
 							],
 						},
 						{
@@ -83,7 +82,13 @@ export default defineConfig({
 								{ slug: 'qpki/services/tsa' },
 								{ slug: 'qpki/services/cms' },
 								{ slug: 'qpki/services/cose' },
-								{ slug: 'qpki/services/audit' },
+							],
+						},
+						{
+							label: 'Operations',
+							items: [
+								{ slug: 'qpki/operations/hsm' },
+								{ slug: 'qpki/operations/audit' },
 							],
 						},
 						{
@@ -98,8 +103,9 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'qpki/reference/cli' },
-								{ slug: 'qpki/reference/standards' },
 								{ slug: 'qpki/reference/troubleshooting' },
+								{ slug: 'qpki/reference/standards' },
+								{ slug: 'qpki/reference/pki-basics' },
 								{ slug: 'qpki/reference/glossary' },
 							],
 						},
@@ -118,7 +124,12 @@ export default defineConfig({
 				{
 					label: 'qlab',
 					items: [
-						{ label: 'Overview', slug: 'qlab/overview' },
+						{
+							label: 'Getting Started',
+							items: [
+								{ label: 'Learning Path', slug: 'qlab/overview' },
+							],
+						},
 						{
 							label: 'Awareness',
 							items: [

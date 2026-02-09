@@ -1,0 +1,429 @@
+---
+/**
+ * QentriQ Suite Page
+ * Presentation of QPKI and QLAB products
+ */
+import Header from '../components/Header.astro';
+import ColorSwitcher from '../components/ColorSwitcher.astro';
+import '../styles/tokens.css';
+import '../styles/landing.css';
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The QentriQ Suite - Open-source tools for practical crypto-agility: QPKI and QLAB." />
+  <title>Suite | QentriQ</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    .suite-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--q-space-16, 4rem) var(--q-space-8, 2rem);
+    }
+
+    .suite-section {
+      margin-bottom: var(--q-space-16, 4rem);
+    }
+
+    .suite-section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: var(--q-space-4, 1rem);
+      color: var(--sl-color-accent-high, #F48FB1);
+    }
+
+    :root[data-theme='light'] .suite-section h2 {
+      color: var(--sl-color-accent, #C2185B);
+    }
+
+    .suite-section > p {
+      color: var(--q-gray-6, #98989f);
+      margin-bottom: var(--q-space-6, 1.5rem);
+      font-size: 1.1rem;
+    }
+
+    :root[data-theme='light'] .suite-section > p {
+      color: var(--q-gray-5, #64646c);
+    }
+
+    /* Product Card */
+    .product-card {
+      background: rgba(23, 24, 28, 0.8);
+      border: 1px solid rgba(233, 30, 99, 0.35);
+      border-radius: var(--q-radius-lg, 0.75rem);
+      padding: var(--q-space-8, 2rem);
+      margin-bottom: var(--q-space-8, 2rem);
+    }
+
+    :root[data-theme='light'] .product-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(194, 24, 91, 0.3);
+    }
+
+    .product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--q-space-2, 0.5rem);
+      color: var(--sl-color-accent-high, #F48FB1);
+    }
+
+    :root[data-theme='light'] .product-card h3 {
+      color: var(--sl-color-accent, #C2185B);
+    }
+
+    .product-card .tagline {
+      color: var(--q-gray-6, #98989f);
+      margin-bottom: var(--q-space-6, 1.5rem);
+      font-size: 1.05rem;
+    }
+
+    :root[data-theme='light'] .product-card .tagline {
+      color: var(--q-gray-5, #64646c);
+    }
+
+    /* Feature Table */
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .feature-table th,
+    .feature-table td {
+      padding: var(--q-space-3, 0.75rem) var(--q-space-4, 1rem);
+      text-align: left;
+      border-bottom: 1px solid var(--q-gray-4, rgba(255, 255, 255, 0.1));
+    }
+
+    :root[data-theme='light'] .feature-table th,
+    :root[data-theme='light'] .feature-table td {
+      border-bottom-color: var(--q-gray-7, #dadadc);
+    }
+
+    .feature-table th {
+      background: var(--q-gray-3, rgba(255, 255, 255, 0.05));
+      font-weight: 600;
+      color: var(--q-gray-8, #f4f4f5);
+    }
+
+    :root[data-theme='light'] .feature-table th {
+      background: var(--q-gray-8, #f4f4f5);
+      color: var(--q-gray-1, #020202);
+    }
+
+    .feature-table td:first-child {
+      font-weight: 500;
+    }
+
+    .feature-table tr:hover {
+      background: var(--q-gray-3, rgba(255, 255, 255, 0.02));
+    }
+
+    :root[data-theme='light'] .feature-table tr:hover {
+      background: var(--q-gray-8, #f4f4f5);
+    }
+
+    .check {
+      color: var(--q-color-success, #22c55e);
+      font-weight: bold;
+    }
+
+    .product-links {
+      margin-top: var(--q-space-6, 1.5rem);
+      display: flex;
+      gap: var(--q-space-4, 1rem);
+      flex-wrap: wrap;
+    }
+
+    .product-links a {
+      color: var(--sl-color-accent-high, #F48FB1);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .product-links a:hover {
+      text-decoration: underline;
+    }
+
+    :root[data-theme='light'] .product-links a {
+      color: var(--sl-color-accent, #C2185B);
+    }
+
+    /* Vision Section */
+    .vision-box {
+      background: rgba(233, 30, 99, 0.08);
+      border-left: 3px solid var(--sl-color-accent, #E91E63);
+      padding: var(--q-space-6, 1.5rem);
+      border-radius: 0 var(--q-radius-md, 0.5rem) var(--q-radius-md, 0.5rem) 0;
+      margin-top: var(--q-space-8, 2rem);
+    }
+
+    :root[data-theme='light'] .vision-box {
+      background: rgba(194, 24, 91, 0.08);
+    }
+
+    .vision-box p {
+      color: var(--q-gray-6, #98989f);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    :root[data-theme='light'] .vision-box p {
+      color: var(--q-gray-5, #64646c);
+    }
+
+    /* List */
+    .suite-list {
+      color: var(--q-gray-6, #98989f);
+      margin-left: var(--q-space-6, 1.5rem);
+    }
+
+    :root[data-theme='light'] .suite-list {
+      color: var(--q-gray-5, #64646c);
+    }
+
+    .suite-list li {
+      margin-bottom: var(--q-space-2, 0.5rem);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: var(--q-space-12, 3rem);
+      background: rgba(233, 30, 99, 0.1);
+      border-radius: var(--q-radius-xl, 1rem);
+      margin-top: var(--q-space-8, 2rem);
+    }
+
+    :root[data-theme='light'] .cta {
+      background: rgba(194, 24, 91, 0.1);
+    }
+
+    .cta h2 {
+      margin-bottom: var(--q-space-4, 1rem);
+      color: var(--q-gray-8, #f4f4f5);
+    }
+
+    :root[data-theme='light'] .cta h2 {
+      color: var(--q-gray-1, #020202);
+    }
+
+    .cta p {
+      color: var(--q-gray-6, #98989f);
+      margin-bottom: var(--q-space-6, 1.5rem);
+    }
+
+    :root[data-theme='light'] .cta p {
+      color: var(--q-gray-5, #64646c);
+    }
+
+    @media (max-width: 768px) {
+      .feature-table {
+        font-size: 0.85rem;
+      }
+
+      .feature-table th,
+      .feature-table td {
+        padding: var(--q-space-2, 0.5rem);
+      }
+    }
+
+    /* Blue palette mode */
+    :global(body.blue-palette) .product-card {
+      border-color: rgba(52, 71, 255, 0.35);
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .product-card {
+      border-color: rgba(52, 71, 255, 0.3);
+    }
+
+    :global(body.blue-palette) .product-card h3 {
+      color: #93a3ff;
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .product-card h3 {
+      color: #3447ff;
+    }
+
+    :global(body.blue-palette) .cta {
+      background: rgba(52, 71, 255, 0.1);
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .cta {
+      background: rgba(52, 71, 255, 0.1);
+    }
+
+    :global(body.blue-palette) .product-links a {
+      color: #93a3ff;
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .product-links a {
+      color: #3447ff;
+    }
+  </style>
+</head>
+
+<body class="landing-page">
+  <Header />
+
+  <!-- Hero -->
+  <section class="landing-hero landing-hero--centered">
+    <h1 class="animate-in">The QentriQ Suite</h1>
+    <p class="animate-in" style="animation-delay: 0.1s">
+      Open-source tools for practical crypto-agility.
+    </p>
+  </section>
+
+  <div class="suite-content">
+
+    <!-- QPKI -->
+    <section class="suite-section">
+      <div class="product-card">
+        <h3>QPKI</h3>
+        <p class="tagline">Quantum-Safe PKI Toolkit in Go</p>
+
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Capability</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4">Algorithms</td>
+              <td>ML-DSA (FIPS 204)</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>ML-KEM (FIPS 203)</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>SLH-DSA (FIPS 205)</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>Hybrid / Composite Certificates</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td rowspan="4">PKI Services</td>
+              <td>Certificate Authority</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>OCSP Responder</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>TSA Server</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>CMS Signing</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td rowspan="3">Deployment</td>
+              <td>Single binary, no dependencies</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>CLI-first design</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>HSM Support (PKCS#11)</td>
+              <td><span class="check">&#10003;</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="product-links">
+          <a href="/qpki/getting-started/quick-start/">Documentation &rarr;</a>
+          <a href="https://github.com/qentriq/qpki">GitHub &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QLAB -->
+    <section class="suite-section">
+      <div class="product-card">
+        <h3>QLAB</h3>
+        <p class="tagline">Hands-on learning journey for post-quantum cryptography</p>
+
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quantum Threats</td>
+              <td>Understanding the quantum risk to classical cryptography</td>
+            </tr>
+            <tr>
+              <td>PQC Algorithms</td>
+              <td>Deep dive into ML-DSA, ML-KEM, and SLH-DSA</td>
+            </tr>
+            <tr>
+              <td>Hands-on Labs</td>
+              <td>Build your first post-quantum certificate</td>
+            </tr>
+            <tr>
+              <td>Going Further</td>
+              <td>Plan your crypto-agile migration</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="product-links">
+          <a href="/qlab/overview/">Start Learning &rarr;</a>
+          <a href="https://github.com/qentriq/qlab">GitHub &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- When to Choose -->
+    <section class="suite-section">
+      <h2>When to Choose QPKI</h2>
+      <p>QPKI is ideal when you need:</p>
+      <ul class="suite-list">
+        <li>A complete, ready-to-use PKI solution (not just a crypto library)</li>
+        <li>Easy deployment with a single binary and no external dependencies</li>
+        <li>CLI-first workflow for automation and DevOps integration</li>
+        <li>Hybrid certificate support for gradual migration</li>
+        <li>A learning path to understand post-quantum PKI concepts</li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <h2>Ready to Get Started?</h2>
+      <p>Try QPKI and build your first quantum-safe certificate in minutes.</p>
+      <a href="/qpki/getting-started/quick-start/" class="btn btn-primary">
+        Read the Documentation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>
+      Open source under Apache 2.0 license.
+      <a href="https://github.com/qentriq">Contribute on GitHub</a>
+    </p>
+  </footer>
+
+  <ColorSwitcher />
+</body>
+</html>

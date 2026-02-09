@@ -1,7 +1,7 @@
 ---
 /**
  * QentriQ About Page
- * Redesigned with Biome-inspired design system
+ * Vision, methodology, and roadmap
  */
 import FeatureCard from '../components/FeatureCard.astro';
 import CardGrid from '../components/CardGrid.astro';
@@ -16,8 +16,8 @@ import '../styles/landing.css';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About QentriQ - Open-source Quantum-Safe PKI suite for the post-quantum era." />
-  <title>About - QentriQ</title>
+  <meta name="description" content="About QentriQ - Open-source software for PKI, certificate lifecycle management, and cryptographic posture — enabling practical crypto-agility." />
+  <title>About | QentriQ</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <style>
     .about-content {
@@ -32,6 +32,7 @@ import '../styles/landing.css';
 
     .about-section h2 {
       font-size: 1.75rem;
+      font-weight: 600;
       margin-bottom: var(--q-space-6, 1.5rem);
       color: var(--sl-color-accent-high, #F48FB1);
     }
@@ -40,6 +41,7 @@ import '../styles/landing.css';
       color: var(--q-gray-6, #98989f);
       margin-bottom: var(--q-space-4, 1rem);
       font-size: 1.1rem;
+      line-height: 1.7;
     }
 
     :root[data-theme='light'] .about-section p {
@@ -48,6 +50,69 @@ import '../styles/landing.css';
 
     :root[data-theme='light'] .about-section h2 {
       color: var(--sl-color-accent, #C2185B);
+    }
+
+    .about-section p strong {
+      color: var(--q-gray-8, #f4f4f5);
+    }
+
+    :root[data-theme='light'] .about-section p strong {
+      color: var(--q-gray-1, #020202);
+    }
+
+    /* Methodology */
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--q-space-6, 1.5rem);
+      margin-top: var(--q-space-8, 2rem);
+    }
+
+    @media (max-width: 768px) {
+      .methodology-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .methodology-card {
+      background: rgba(23, 24, 28, 0.8);
+      border: 1px solid rgba(233, 30, 99, 0.35);
+      border-radius: var(--q-radius-lg, 0.75rem);
+      padding: var(--q-space-6, 1.5rem);
+      text-align: center;
+    }
+
+    :root[data-theme='light'] .methodology-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(194, 24, 91, 0.3);
+    }
+
+    .methodology-card .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--sl-color-accent, #E91E63);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-bottom: var(--q-space-4, 1rem);
+    }
+
+    .methodology-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--q-space-2, 0.5rem);
+      color: var(--q-gray-8, #f4f4f5);
+    }
+
+    :root[data-theme='light'] .methodology-card h3 {
+      color: var(--q-gray-1, #020202);
+    }
+
+    .methodology-card p {
+      font-size: 0.95rem;
+      margin: 0;
     }
 
     /* Timeline */
@@ -100,6 +165,13 @@ import '../styles/landing.css';
     }
 
     /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--q-space-6, 1.5rem);
+      margin-top: var(--q-space-8, 2rem);
+    }
+
     .project-card {
       background: var(--q-gray-3, #202022);
       border: 1px solid var(--q-gray-4, #27272a);
@@ -149,11 +221,56 @@ import '../styles/landing.css';
       color: var(--sl-color-accent, #C2185B);
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--q-space-6, 1.5rem);
-      margin-top: var(--q-space-8, 2rem);
+    /* Vision teaser */
+    .vision-teaser {
+      background: rgba(233, 30, 99, 0.08);
+      border-left: 3px solid var(--sl-color-accent, #E91E63);
+      padding: var(--q-space-4, 1rem) var(--q-space-6, 1.5rem);
+      border-radius: 0 var(--q-radius-md, 0.5rem) var(--q-radius-md, 0.5rem) 0;
+      margin-top: var(--q-space-6, 1.5rem);
+    }
+
+    :root[data-theme='light'] .vision-teaser {
+      background: rgba(194, 24, 91, 0.08);
+    }
+
+    .vision-teaser p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Blue palette mode */
+    :global(body.blue-palette) .methodology-card {
+      border-color: rgba(52, 71, 255, 0.35);
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .methodology-card {
+      border-color: rgba(52, 71, 255, 0.3);
+    }
+
+    :global(body.blue-palette) .methodology-card .number {
+      background: #3447ff;
+    }
+
+    :global(body.blue-palette) .vision-teaser {
+      background: rgba(52, 71, 255, 0.08);
+      border-left-color: #3447ff;
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .vision-teaser {
+      background: rgba(52, 71, 255, 0.08);
+    }
+
+    :global(body.blue-palette) .project-card:hover {
+      border-color: #3447ff;
+    }
+
+    :global(body.blue-palette) .project-card a {
+      color: #93a3ff;
+    }
+
+    :global(:root[data-theme='light'] body.blue-palette) .project-card a {
+      color: #3447ff;
     }
   </style>
 </head>
@@ -165,8 +282,7 @@ import '../styles/landing.css';
   <section class="landing-hero landing-hero--centered">
     <h1 class="animate-in">About QentriQ</h1>
     <p class="animate-in" style="animation-delay: 0.1s">
-      An open-source initiative to make quantum-safe PKI accessible to everyone,
-      preparing organizations for the post-quantum cryptography transition.
+      Open-source software for PKI, certificate lifecycle management, and cryptographic posture — enabling practical crypto-agility.
     </p>
   </section>
 
@@ -175,43 +291,64 @@ import '../styles/landing.css';
     <section class="about-section">
       <h2>Our Vision</h2>
       <p>
-        Quantum computers will eventually break the cryptographic algorithms that secure today's digital infrastructure.
-        QentriQ exists to ensure that organizations of all sizes can prepare for this transition with production-ready,
-        open-source tools.
+        <strong>Quantum computers will break the cryptographic algorithms that secure today's digital infrastructure.</strong>
       </p>
-      <CardGrid columns={3}>
-        <FeatureCard title="Accessible">
-          No expensive licenses, no vendor lock-in. Pure open-source under Apache 2.0 license.
-        </FeatureCard>
-        <FeatureCard title="Standards-First">
-          Built on NIST FIPS 203/204/205 and IETF RFCs. No proprietary extensions.
-        </FeatureCard>
-        <FeatureCard title="Production-Ready">
-          Not a research project. Designed for real-world deployment with HSM support and audit logging.
-        </FeatureCard>
-      </CardGrid>
+      <p>
+        QentriQ develops open-source software for PKI, certificate lifecycle management, and cryptographic posture — helping organizations of all sizes prepare for this transition.
+      </p>
+      <p>
+        <strong>Our approach: practical crypto-agility.</strong> Not a one-time migration, but an ongoing capability to adapt when algorithms become vulnerable or new standards emerge.
+      </p>
     </section>
 
-    <!-- The Suite -->
+    <!-- Methodology -->
     <section class="about-section">
-      <h2>The Suite</h2>
+      <h2>The Approach: Observe, Govern, Orchestrate</h2>
+      <p>
+        Crypto-agility requires a continuous cycle of understanding your cryptographic posture, making informed decisions, and executing changes across your infrastructure.
+      </p>
+      <div class="methodology-grid">
+        <div class="methodology-card">
+          <div class="number">1</div>
+          <h3>Observe</h3>
+          <p>Discover and inventory cryptographic assets across your infrastructure.</p>
+        </div>
+        <div class="methodology-card">
+          <div class="number">2</div>
+          <h3>Govern</h3>
+          <p>Assess risks, ensure compliance, and plan your migration roadmap.</p>
+        </div>
+        <div class="methodology-card">
+          <div class="number">3</div>
+          <h3>Orchestrate</h3>
+          <p>Deploy and manage post-quantum solutions at scale.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Suite Today -->
+    <section class="about-section">
+      <h2>The Suite Today</h2>
+      <p>
+        QentriQ starts with the tools you need to prototype and prepare: a PKI toolkit for experimentation and a learning platform to build expertise.
+      </p>
       <div class="projects-grid">
         <div class="project-card">
           <h3>QPKI</h3>
-          <p>Complete post-quantum PKI toolkit: CA, OCSP, TSA, CMS, and more. Single binary, CLI-first.</p>
-          <a href="https://github.com/qentriq">github.com/qentriq</a>
+          <p>Complete post-quantum PKI toolkit in Go. CA, OCSP, TSA, CMS. Single binary, CLI-first, HSM support.</p>
+          <a href="/suite/">Learn more &rarr;</a>
         </div>
         <div class="project-card">
           <h3>QLAB</h3>
-          <p>Hands-on learning journey from quantum threats to production-ready crypto-agile infrastructure.</p>
-          <a href="https://github.com/qentriq-lab">github.com/qentriq-lab</a>
+          <p>Hands-on learning journey from quantum threats to crypto-agile infrastructure.</p>
+          <a href="/qlab/overview/">Start learning &rarr;</a>
         </div>
       </div>
     </section>
 
     <!-- Timeline -->
     <section class="about-section">
-      <h2>Timeline</h2>
+      <h2>The Timeline</h2>
       <p>Key milestones in the post-quantum transition:</p>
       <div class="timeline">
         <div class="timeline-item">
