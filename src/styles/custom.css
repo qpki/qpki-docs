@@ -1,0 +1,434 @@
+/* QentriQ - Style Biome */
+
+/* ========================================
+ * DARK MODE (défaut) - Quantum Design
+ * ======================================== */
+:root {
+	/* Couleurs de fond - Biome style */
+	--sl-color-bg: #17181c;
+	--sl-color-black: #17181c;
+	--sl-color-bg-nav: #24272f;
+	--sl-color-bg-sidebar: #24272f;
+
+	/* Texte */
+	--sl-color-white: #ffffff;
+	--sl-color-text: #eceef2;
+
+	/* Échelle de gris */
+	--sl-color-gray-1: #eceef2;
+	--sl-color-gray-2: #c0c2c7;
+	--sl-color-gray-3: #888b96;
+	--sl-color-gray-4: #545861;
+	--sl-color-gray-5: #353841;
+	--sl-color-gray-6: #24272f;
+
+	/* Bordures */
+	--sl-color-hairline: #353841;
+	--sl-color-hairline-light: #353841;
+}
+
+/* ========================================
+ * LIGHT MODE
+ * ======================================== */
+:root[data-theme='light'] {
+	/* Couleurs de fond */
+	--sl-color-bg: #ffffff;
+	--sl-color-black: #ffffff;
+	--sl-color-bg-nav: #f5f6f8;
+	--sl-color-bg-sidebar: #f5f6f8;
+
+	/* Texte */
+	--sl-color-white: #17181c;
+	--sl-color-text: #24272f;
+
+	/* Échelle de gris (inversée) */
+	--sl-color-gray-1: #24272f;
+	--sl-color-gray-2: #353841;
+	--sl-color-gray-3: #545861;
+	--sl-color-gray-4: #888b96;
+	--sl-color-gray-5: #c0c2c7;
+	--sl-color-gray-6: #eceef2;
+	--sl-color-gray-7: #f5f6f8;
+
+	/* Bordures */
+	--sl-color-hairline: #c0c2c7;
+	--sl-color-hairline-light: #eceef2;
+}
+
+/* ========================================
+ * SIDEBAR
+ * ======================================== */
+.sidebar,
+.sidebar-pane,
+nav.sidebar {
+	background-color: var(--sl-color-bg-sidebar) !important;
+}
+
+/* ========================================
+ * CONTENU PRINCIPAL
+ * ======================================== */
+body,
+.page,
+.main-frame,
+.main-pane,
+.content-panel {
+	background-color: var(--sl-color-bg) !important;
+}
+
+/* ========================================
+ * CODE BLOCKS - Style Biome
+ * ======================================== */
+.expressive-code {
+	--ec-frm-edBg: #24272f;
+	--ec-frm-termBg: #24272f;
+	border-radius: 8px;
+	border: 1px solid #353841;
+}
+
+.expressive-code figure {
+	background-color: #24272f !important;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.expressive-code pre {
+	background-color: #24272f !important;
+	border-radius: 0;
+}
+
+/* Header des blocs de code (Terminal) */
+.expressive-code .header {
+	background-color: #353841 !important;
+	border-bottom: 1px solid #353841;
+	padding: 8px 12px;
+}
+
+/* Bouton copier */
+.expressive-code .copy {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.expressive-code:hover .copy {
+	opacity: 1;
+}
+
+.expressive-code .copy button {
+	background-color: #353841 !important;
+	border: 1px solid #545861 !important;
+	border-radius: 4px;
+	color: #c0c2c7;
+	padding: 4px 8px;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+.expressive-code .copy button:hover {
+	background-color: #545861 !important;
+	color: #ffffff;
+}
+
+/* Light mode code blocks */
+:root[data-theme='light'] .expressive-code {
+	--ec-frm-edBg: #f5f6f8;
+	--ec-frm-termBg: #f5f6f8;
+	border: 1px solid var(--sl-color-hairline-light) !important;
+}
+
+:root[data-theme='light'] .expressive-code figure {
+	background-color: #f5f6f8 !important;
+}
+
+:root[data-theme='light'] .expressive-code pre {
+	background-color: #f5f6f8 !important;
+}
+
+:root[data-theme='light'] .expressive-code .header {
+	background-color: #eceef2 !important;
+	border-bottom: 1px solid var(--sl-color-hairline-light);
+}
+
+:root[data-theme='light'] .expressive-code .copy button {
+	background-color: rgba(0, 0, 0, 0.05) !important;
+	border: 1px solid var(--sl-color-hairline) !important;
+	color: #545861;
+}
+
+:root[data-theme='light'] .expressive-code .copy button:hover {
+	background-color: rgba(0, 0, 0, 0.1) !important;
+	color: #24272f;
+}
+
+/* ========================================
+ * FILE TREE (arborescences)
+ * ======================================== */
+starlight-file-tree {
+	background-color: #052b5d !important;
+	border: 1px solid #0a4080;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+starlight-file-tree ul {
+	border-left-color: #0a4080;
+}
+
+starlight-file-tree .directory > details > summary:hover {
+	color: var(--sl-color-accent);
+}
+
+/* ========================================
+ * CARTES ET LIENS
+ * ======================================== */
+.sl-link-card {
+	border: 1px solid var(--sl-color-gray-5);
+	background-color: var(--sl-color-gray-6);
+	border-radius: 8px;
+	transition: all 0.2s ease;
+}
+
+.sl-link-card:hover {
+	border-color: #0a4080;
+	background-color: #052b5d;
+}
+
+.card {
+	border: 1px solid var(--sl-color-gray-5);
+	background-color: var(--sl-color-bg) !important;
+	border-radius: 8px;
+	transition: all 0.2s ease;
+}
+
+.card:hover {
+	border-color: #0a4080;
+}
+
+/* ========================================
+ * TABLES
+ * ======================================== */
+table {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+th {
+	background-color: var(--sl-color-gray-6);
+	border-bottom: 1px solid var(--sl-color-gray-5);
+}
+
+td {
+	border-bottom: 1px solid var(--sl-color-gray-5);
+}
+
+tr:last-child td {
+	border-bottom: none;
+}
+
+/* ========================================
+ * ASIDES (notes, warnings, etc.)
+ * ======================================== */
+.starlight-aside {
+	border-radius: 8px;
+	border-left-width: 4px;
+}
+
+/* ========================================
+ * SCROLLBAR
+ * ======================================== */
+.sidebar-content {
+	scrollbar-width: thin;
+	scrollbar-color: var(--sl-color-gray-5) transparent;
+}
+
+.sidebar-content::-webkit-scrollbar {
+	width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+	background-color: var(--sl-color-gray-5);
+	border-radius: 3px;
+}
+
+/* ========================================
+ * INLINE CODE
+ * ======================================== */
+:not(pre) > code {
+	background-color: rgba(5, 43, 93, 0.5);
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+:root[data-theme='light'] :not(pre) > code {
+	background-color: var(--sl-color-gray-6);
+}
+
+/* ========================================
+ * LIENS
+ * ======================================== */
+a {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+}
+
+/* ========================================
+ * MASQUER ÉLÉMENTS NON DÉSIRÉS
+ * ======================================== */
+.sidebar-switcher,
+[data-sidebar-switcher],
+select.sidebar-switcher {
+	display: none !important;
+}
+
+img[src*="shields.io"],
+img[src*="codecov.io"],
+img[src*="goreportcard.com"],
+img[src*="pkg.go.dev/badge"],
+img[src*="github.com"][src*="badge"] {
+	display: none;
+}
+
+/* Masquer les liens de navigation GitHub (← Prev | Home | Next →) */
+.sl-markdown-content > p:last-of-type:has(a[href*="README.md"]),
+.sl-markdown-content > p:last-of-type:has(a[href^="../"]):has(a[href^="../"]):has(a[href^="../"]) {
+	display: none !important;
+}
+
+.sl-markdown-content > .sl-heading-wrapper.level-h1:first-child {
+	display: none;
+}
+
+/* GitHub icon in header */
+.social-icons a {
+	color: var(--sl-color-gray-3);
+}
+
+.social-icons a:hover {
+	color: var(--sl-color-white);
+}
+
+/* ========================================
+ * SPLASH / HOMEPAGE
+ * Style premium inspiré pqctoday + vaultinum
+ * ======================================== */
+
+/* Hero - centré pleine largeur (override Starlight desktop layout) */
+@media (min-width: 50rem) {
+	[data-has-hero] .hero {
+		grid-template-columns: 1fr !important;
+		text-align: center !important;
+	}
+
+	[data-has-hero] .hero .stack {
+		align-items: center !important;
+	}
+
+	[data-has-hero] .hero .copy {
+		align-items: center !important;
+	}
+
+	[data-has-hero] .hero .actions {
+		justify-content: center !important;
+	}
+}
+
+/* Hero - titre gradient */
+[data-has-hero] .hero h1 {
+	font-size: clamp(2.5rem, 6vw, 4rem) !important;
+	letter-spacing: -1.5px;
+	line-height: 1.1;
+	background: linear-gradient(135deg, #005BC5 0%, #FF55A3 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+:root[data-theme='light'][data-has-hero] .hero h1 {
+	background: linear-gradient(135deg, #052b5d 0%, #FF55A3 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Hero - tagline */
+[data-has-hero] .hero .tagline {
+	font-size: 1.25rem;
+	max-width: 900px;
+	margin: 0 auto;
+	color: var(--sl-color-gray-2);
+}
+
+/* Cards - transparent + bordure subtile */
+[data-has-hero] .card {
+	background: transparent !important;
+	border: 1px solid rgba(255, 255, 255, 0.08) !important;
+	border-radius: 12px;
+	transition: all 0.3s ease;
+}
+
+[data-has-hero] .card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(0, 91, 197, 0.3) !important;
+	box-shadow: 0 12px 40px rgba(0, 91, 197, 0.1);
+}
+
+:root[data-theme='light'][data-has-hero] .card {
+	background: transparent !important;
+	border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+:root[data-theme='light'][data-has-hero] .card:hover {
+	border-color: rgba(0, 91, 197, 0.3) !important;
+	box-shadow: 0 12px 40px rgba(5, 43, 93, 0.08);
+}
+
+/* Card titres et contenu centrés */
+[data-has-hero] .card .title {
+	justify-content: center !important;
+	text-align: center !important;
+	width: 100%;
+}
+
+[data-has-hero] .card .body {
+	text-align: center !important;
+}
+
+[data-has-hero] .card {
+	align-items: center !important;
+}
+
+/* Actions buttons - style vaultinum */
+[data-has-hero] .actions a[data-variant="primary"] {
+	background: linear-gradient(135deg, #FF55A3, #E04A90);
+	box-shadow: 0 4px 15px rgba(255, 85, 163, 0.3);
+}
+
+[data-has-hero] .actions a[data-variant="primary"]:hover {
+	box-shadow: 0 6px 25px rgba(255, 85, 163, 0.5);
+	transform: translateY(-1px);
+}
+
+/* Section headings on splash — centrage */
+[data-has-hero] .sl-markdown-content .sl-heading-wrapper {
+	text-align: center !important;
+}
+
+[data-has-hero] .sl-markdown-content h2 {
+	display: inline !important;
+	font-size: 1.75rem;
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+	color: var(--sl-color-white);
+}
+
+/* CardGrid - toutes les cards sur une ligne sur la splash page */
+@media (min-width: 50rem) {
+	[data-has-hero] .card-grid {
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+	}
+}

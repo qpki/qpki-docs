@@ -1,0 +1,16 @@
+@layer base, starlight, theme, components, utilities;
+
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@plugin "../tailwind-plugin/tw-theme.js";
+
+@theme {
+  --color-primary-gradient: linear-gradient(
+    35.65deg,
+    #3a1c71 -10.94%,
+    #D76D77 61.04%,
+    #ffca7b 133.01%
+  );
+}

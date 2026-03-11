@@ -1,0 +1,123 @@
+/* QentriQ Design Tokens
+ * Inspired by DocKit Astro design system
+ * https://github.com/themefisher/dockit-astro
+ */
+
+:root {
+  /* ========================================
+   * QUANTUM PALETTE - Dark Mode
+   * Deep Tech / Crypto-Agile Design
+   * ======================================== */
+  --q-dark-bg: #0A0E1F;
+  --q-deep-blue: #1A1A5E;
+  --q-quantum-pink: #FF55A3;
+  --q-cobalt: #005BC5;
+  --q-vaultinum-blue: #052b5d;
+  --q-vaultinum-light: #0a4080;
+
+  /* Accent colors (Starlight integration) */
+  --sl-color-accent-low: #2d1a3a;
+  --sl-color-accent: #FF55A3;
+  --sl-color-accent-high: #FF7BB8;
+
+  /* ========================================
+   * GRAY SCALE (Quantum-adapted)
+   * ======================================== */
+  --q-gray-1: #0A0E1F;
+  --q-gray-2: #121630;
+  --q-gray-3: #1A1A5E;
+  --q-gray-4: #2A2A6E;
+  --q-gray-5: #6B7280;
+  --q-gray-6: #9CA3AF;
+  --q-gray-7: #D1D5DB;
+  --q-gray-8: #F5F7FA;
+
+  /* ========================================
+   * SEMANTIC COLORS
+   * ======================================== */
+  --q-color-success: #22c55e;
+  --q-color-warning: #eab308;
+  --q-color-error: #ef4444;
+  --q-color-info: #3b82f6;
+
+  /* ========================================
+   * SPACING SCALE (8px base)
+   * ======================================== */
+  --q-space-1: 0.25rem;  /* 4px */
+  --q-space-2: 0.5rem;   /* 8px */
+  --q-space-3: 0.75rem;  /* 12px */
+  --q-space-4: 1rem;     /* 16px */
+  --q-space-5: 1.25rem;  /* 20px */
+  --q-space-6: 1.5rem;   /* 24px */
+  --q-space-8: 2rem;     /* 32px */
+  --q-space-10: 2.5rem;  /* 40px */
+  --q-space-12: 3rem;    /* 48px */
+  --q-space-16: 4rem;    /* 64px */
+
+  /* ========================================
+   * BORDER RADIUS
+   * ======================================== */
+  --q-radius-sm: 0.25rem;  /* 4px */
+  --q-radius-md: 0.5rem;   /* 8px */
+  --q-radius-lg: 0.75rem;  /* 12px */
+  --q-radius-xl: 1rem;     /* 16px */
+  --q-radius-full: 9999px;
+
+  /* ========================================
+   * SHADOWS
+   * ======================================== */
+  --q-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --q-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --q-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* ========================================
+   * TRANSITIONS
+   * ======================================== */
+  --q-transition-fast: 150ms ease;
+  --q-transition-normal: 200ms ease;
+  --q-transition-slow: 300ms ease;
+
+  /* ========================================
+   * TYPOGRAPHY
+   * ======================================== */
+  --q-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ========================================
+   * BREAKPOINTS (for reference)
+   * ======================================== */
+  --q-breakpoint-sm: 640px;
+  --q-breakpoint-md: 768px;
+  --q-breakpoint-lg: 1024px;
+  --q-breakpoint-xl: 1280px;
+}
+
+/* ========================================
+ * LIGHT MODE OVERRIDES
+ * ======================================== */
+:root[data-theme='light'] {
+  --q-dark-bg: #FFFFFF;
+  --q-deep-blue: #F5F7FA;
+  --sl-color-accent-low: #FFE5F0;
+  --sl-color-accent: #FF55A3;
+  --sl-color-accent-high: #D93D85;
+
+  --q-gray-1: #0A0E1F;
+  --q-gray-2: #1A1A5E;
+  --q-gray-3: #374151;
+  --q-gray-4: #6B7280;
+  --q-gray-5: #9CA3AF;
+  --q-gray-6: #D1D5DB;
+  --q-gray-7: #E5E7EB;
+  --q-gray-8: #F5F7FA;
+}
+
+/* Auto mode - respect system preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --q-dark-bg: #FFFFFF;
+    --q-deep-blue: #F5F7FA;
+    --sl-color-accent-low: #FFE5F0;
+    --sl-color-accent: #FF55A3;
+    --sl-color-accent-high: #D93D85;
+  }
+}
