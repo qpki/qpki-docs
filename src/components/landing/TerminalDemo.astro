@@ -54,7 +54,7 @@
   }
 
   .terminal {
-    background: #1a1d27;
+    background: var(--q-terminal-bg);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
@@ -176,7 +176,7 @@
 
   /* Light mode */
   :root[data-theme='light'] .terminal {
-    background: #f8fafc;
+    background: var(--q-terminal-bg-light);
     border: 1px solid #e2e8f0;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   }
@@ -204,6 +204,19 @@
 
   :root[data-theme='light'] .prompt {
     color: #005BC5;
+  }
+
+  /* Reduced motion: show all lines immediately */
+  @media (prefers-reduced-motion: reduce) {
+    .line {
+      opacity: 1;
+      transform: none;
+      animation: none !important;
+    }
+    .cursor {
+      animation: none !important;
+      opacity: 1;
+    }
   }
 
   /* Responsive */

@@ -41,7 +41,7 @@ export default defineConfig({
 					label: 'navLinks',
 					items: [
 						{ label: 'Docs', link: '/qpki/getting-started/quick-start/' },
-						{ label: 'Playground', link: '/qlab/overview/' },
+						{ label: 'Learning Path', link: '/qlab/overview/' },
 					],
 				},
 				{

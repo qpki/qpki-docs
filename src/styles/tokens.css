@@ -14,6 +14,8 @@
   --q-cobalt: #005BC5;
   --q-vaultinum-blue: #052b5d;
   --q-vaultinum-light: #0a4080;
+  --q-terminal-bg: #1a1d27;
+  --q-terminal-bg-light: #f8fafc;
 
   /* Accent colors (Starlight integration) */
   --sl-color-accent-low: #2d1a3a;
