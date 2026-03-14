@@ -13,7 +13,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'QPKI',
-			description: 'Post-Quantum X.509 PKI in Go — ML-DSA, ML-KEM, SLH-DSA',
+			description: 'Post-Quantum X.509 PKI in Go — ML-DSA, ML-KEM, SLH-DSA. Single binary, zero dependencies, NIST FIPS 203/204/205 compliant.',
 			components: {
 				Head: './src/components/Head.astro',
 				Hero: './src/components/Hero.astro',
