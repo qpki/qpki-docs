@@ -3,10 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "sync-api": "cp ../qpki-server/api/openapi.yaml ./public/openapi.yaml",
-    "dev": "npm run sync-api && astro dev",
-    "start": "npm run sync-api && astro dev",
-    "build": "npm run sync-api && astro build && node fix-links.mjs",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && node fix-links.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
