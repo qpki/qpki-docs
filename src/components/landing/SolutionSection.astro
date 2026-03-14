@@ -1,0 +1,268 @@
+---
+/**
+ * SolutionSection - "What is QPKI?" with architecture diagram
+ * Shows the flow: CLI → CA → Certificates → Services
+ */
+---
+
+<section class="solution-section not-content">
+  <div class="section-inner">
+    <h2 class="section-title">One binary. Full PKI.</h2>
+    <p class="section-subtitle">From root CA to OCSP responder — everything ships in a single CLI.</p>
+
+    <!-- Architecture Diagram -->
+    <div class="arch-diagram fade-in">
+      <div class="arch-flow">
+        <!-- CLI -->
+        <div class="arch-node arch-cli">
+          <div class="arch-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="2" y="4" width="28" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 14l4 4-4 4" stroke="#FF55A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 22h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <span class="arch-label">CLI</span>
+          <span class="arch-desc">Single binary</span>
+        </div>
+
+        <div class="arch-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24">
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- CA -->
+        <div class="arch-node arch-ca">
+          <div class="arch-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4l12 6v8c0 6-5 10-12 14C9 28 4 24 4 18v-8l12-6z" stroke="#FF55A3" stroke-width="1.5"/>
+              <path d="M12 16l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="arch-label">CA</span>
+          <span class="arch-desc">Root & Sub CAs</span>
+        </div>
+
+        <div class="arch-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24">
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Certificates -->
+        <div class="arch-node arch-cert">
+          <div class="arch-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="6" y="4" width="20" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 10h12M10 14h12M10 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              <circle cx="22" cy="22" r="5" fill="#FF55A3" opacity="0.15" stroke="#FF55A3" stroke-width="1.5"/>
+              <path d="M20 22l1.5 1.5L24 20.5" stroke="#FF55A3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="arch-label">Certificates</span>
+          <span class="arch-desc">X.509 PQ & Hybrid</span>
+        </div>
+
+        <div class="arch-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24">
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Services -->
+        <div class="arch-node arch-services">
+          <div class="arch-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="8" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 12v4M12.5 20l-2 2M19.5 20l2 2" stroke="#FF55A3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="arch-label">Services</span>
+          <span class="arch-desc">OCSP · CRL · TSA · CMS</span>
+        </div>
+      </div>
+
+      <!-- Algorithms bar -->
+      <div class="algo-bar">
+        <span class="algo-label">Algorithms</span>
+        <div class="algo-tags">
+          <span class="algo-tag pq">ML-DSA</span>
+          <span class="algo-tag pq">ML-KEM</span>
+          <span class="algo-tag pq">SLH-DSA</span>
+          <span class="algo-tag classical">RSA</span>
+          <span class="algo-tag classical">ECDSA</span>
+          <span class="algo-tag classical">EdDSA</span>
+          <span class="algo-tag hybrid">Catalyst</span>
+          <span class="algo-tag hybrid">Composite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution-section {
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--sl-color-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--sl-color-gray-3);
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+  }
+
+  .arch-diagram {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 3rem 2rem 2rem;
+    overflow: hidden;
+  }
+
+  .arch-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .arch-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    width: 180px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .arch-node:hover {
+    background: rgba(255, 85, 163, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .arch-icon {
+    color: var(--sl-color-gray-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arch-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+
+  .arch-desc {
+    font-size: 0.75rem;
+    color: var(--sl-color-gray-4);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .arch-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+  }
+
+  /* Algorithms bar */
+  .algo-bar {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .algo-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--sl-color-gray-4);
+    font-weight: 600;
+  }
+
+  .algo-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .algo-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-family: var(--q-font-mono, monospace);
+  }
+
+  .algo-tag.pq {
+    background: rgba(255, 85, 163, 0.08);
+    color: var(--sl-color-accent-high);
+    border: 1px solid rgba(255, 85, 163, 0.2);
+  }
+
+  .algo-tag.classical {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--sl-color-gray-2);
+    border: 1px solid var(--sl-color-gray-5);
+  }
+
+  .algo-tag.hybrid {
+    background: rgba(0, 91, 197, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(0, 91, 197, 0.25);
+  }
+
+  /* Light mode */
+  :root[data-theme='light'] .arch-diagram {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  :root[data-theme='light'] .algo-bar {
+    border-top-color: rgba(0, 0, 0, 0.08);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .arch-flow {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .arch-arrow {
+      transform: rotate(90deg);
+    }
+
+    .arch-diagram {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
