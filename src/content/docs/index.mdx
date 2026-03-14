@@ -3,82 +3,42 @@ title: "QPKI"
 description: "ML-DSA, ML-KEM, SLH-DSA — complete post-quantum PKI toolkit in Go."
 template: splash
 hero:
-  tagline: "The post-quantum PKI toolkit in Go.<br>ML-DSA, ML-KEM, hybrid certificates. Open source. Standards-compliant. CLI-first."
+  tagline: "Post-quantum PKI toolkit in Go.<br>ML-DSA, ML-KEM, hybrid certificates. FIPS 203/204/205 compliant. CLI-first."
   actions:
-    - text: Get Started
+    - text: Quick Start
       link: /qpki/getting-started/quick-start/
       icon: right-arrow
       variant: primary
-    - text: Playground
-      link: /qlab/overview/
-      icon: rocket
-      variant: secondary
     - text: GitHub
-      link: https://github.com/qentriq/qpki
+      link: https://github.com/remiblancher/qpki
       icon: github
-      variant: minimal
+      variant: secondary
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import TerminalDemo from '../../components/landing/TerminalDemo.astro';
+import TrustBar from '../../components/landing/TrustBar.astro';
+import ProblemSection from '../../components/landing/ProblemSection.astro';
+import SolutionSection from '../../components/landing/SolutionSection.astro';
+import FeaturesZigzag from '../../components/landing/FeaturesZigzag.astro';
+import CodeShowcase from '../../components/landing/CodeShowcase.astro';
+import QlabSection from '../../components/landing/QlabSection.astro';
+import OpenSourceCTA from '../../components/landing/OpenSourceCTA.astro';
+import FooterLanding from '../../components/landing/FooterLanding.astro';
 
-## Why Now?
+<TerminalDemo />
 
-<CardGrid>
-  <Card title="2030 Deadline">
-    Quantum computers will break RSA and ECC. Major organizations are already preparing.
-  </Card>
-  <Card title="Harvest Now, Decrypt Later">
-    Encrypted data stolen today can be decrypted when quantum computers arrive.
-  </Card>
-  <Card title="Standards Ready">
-    NIST finalized post-quantum standards in 2024. The tools exist. Time to act.
-  </Card>
-</CardGrid>
+<TrustBar />
 
-## Features
+<ProblemSection />
 
-<CardGrid>
-  <Card title="Post-Quantum Ready">
-    ML-DSA, ML-KEM, SLH-DSA. FIPS 203/204/205 compliant algorithms ready for the quantum era.
-  </Card>
-  <Card title="Hybrid Certificates">
-    Catalyst mode for dual-algorithm certificates. Smooth migration from classical to post-quantum.
-  </Card>
-</CardGrid>
+<SolutionSection />
 
-<CardGrid>
-  <Card title="CLI-First">
-    Single binary, no dependencies. Script everything. Perfect for automation and DevOps.
-  </Card>
-  <Card title="Battle-Tested">
-    Cross-validated with OpenSSL and BouncyCastle. Standards-compliant X.509 certificates.
-  </Card>
-</CardGrid>
+<FeaturesZigzag />
 
-## Learn. Build. Deploy.
+<CodeShowcase />
 
-<CardGrid>
-  <Card title="QLAB">
-    Hands-on learning journey. Understand quantum threats and build your first post-quantum certificate.
-  </Card>
-  <Card title="QPKI">
-    Experiment with post-quantum PKI. Learn by doing. CA, OCSP, TSA, CMS in a single binary.
-  </Card>
-</CardGrid>
+<QlabSection />
 
-## Standards Compliant
+<OpenSourceCTA />
 
-<p style="text-align: center; color: var(--sl-color-gray-2); margin-bottom: 1.5rem;">Built on NIST post-quantum cryptography standards and industry PKI specifications.</p>
-
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin: 1.5rem 0 0.5rem 0;">
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid rgba(255,85,163,0.4); color: var(--sl-color-accent-high); font-size: 0.9rem; font-weight: 500;">FIPS 203 (ML-KEM)</span>
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid rgba(255,85,163,0.4); color: var(--sl-color-accent-high); font-size: 0.9rem; font-weight: 500;">FIPS 204 (ML-DSA)</span>
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid rgba(255,85,163,0.4); color: var(--sl-color-accent-high); font-size: 0.9rem; font-weight: 500;">FIPS 205 (SLH-DSA)</span>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin: 0.5rem 0 1.5rem 0;">
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--sl-color-gray-5); color: var(--sl-color-gray-2); font-size: 0.9rem; font-weight: 500;">RFC 5280 (X.509)</span>
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--sl-color-gray-5); color: var(--sl-color-gray-2); font-size: 0.9rem; font-weight: 500;">RFC 6960 (OCSP)</span>
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--sl-color-gray-5); color: var(--sl-color-gray-2); font-size: 0.9rem; font-weight: 500;">RFC 3161 (TSA)</span>
-  <span style="padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--sl-color-gray-5); color: var(--sl-color-gray-2); font-size: 0.9rem; font-weight: 500;">RFC 5652 (CMS)</span>
-</div>
+<FooterLanding />

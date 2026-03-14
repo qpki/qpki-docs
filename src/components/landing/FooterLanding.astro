@@ -1,0 +1,175 @@
+---
+/**
+ * FooterLanding - Rich multi-column footer
+ */
+---
+
+<footer class="landing-footer not-content">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="#FF55A3" opacity="0.15" stroke="#FF55A3" stroke-width="1.5"/>
+            <path d="M9 12l2 2 4-4" stroke="#FF55A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-name">QPKI</span>
+        </div>
+        <p class="brand-desc">Post-quantum PKI toolkit.<br>Open source. Standards-compliant.</p>
+      </div>
+
+      <!-- Product -->
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/qpki/getting-started/quick-start/">Quick Start</a></li>
+          <li><a href="/qpki/getting-started/installation/">Installation</a></li>
+          <li><a href="/qpki/reference/cli/">CLI Reference</a></li>
+          <li><a href="/qlab/overview/">QLAB Playground</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/qpki/getting-started/post-quantum/">Post-Quantum Guide</a></li>
+          <li><a href="/qpki/migration/crypto-agility/">Crypto-Agility</a></li>
+          <li><a href="/qpki/reference/standards/">Standards</a></li>
+          <li><a href="/qpki/reference/glossary/">Glossary</a></li>
+        </ul>
+      </div>
+
+      <!-- Community -->
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/remiblancher/qpki" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/qpki/dev/contributing/">Contributing</a></li>
+          <li><a href="/qpki/dev/architecture/">Architecture</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="copyright">&copy; 2025 Qentriq. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .landing-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 4rem 1.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sl-color-white);
+  }
+
+  .brand-desc {
+    color: var(--sl-color-gray-4);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .footer-col h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sl-color-gray-2);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-col a {
+    color: var(--sl-color-gray-4);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-col a:hover {
+    color: var(--sl-color-white);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-5);
+  }
+
+  /* Light mode */
+  :root[data-theme='light'] .landing-footer {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  :root[data-theme='light'] .footer-bottom {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  :root[data-theme='light'] .footer-col a:hover {
+    color: var(--sl-color-gray-1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+      grid-column: span 1;
+    }
+  }
+</style>

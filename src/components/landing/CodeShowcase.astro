@@ -1,0 +1,272 @@
+---
+/**
+ * CodeShowcase - Full-width terminal demo
+ * "Build a post-quantum CA in 3 commands"
+ */
+---
+
+<section class="code-section not-content">
+  <div class="section-inner">
+    <h2 class="section-title">3 Commands. 1 Post-Quantum CA.</h2>
+    <p class="section-subtitle">From zero to quantum-safe certificates in under a minute.</p>
+
+    <div class="showcase-terminal fade-in">
+      <div class="terminal-chrome">
+        <div class="chrome-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="chrome-title">~ / my-pki</span>
+        <div class="chrome-spacer"></div>
+      </div>
+      <div class="terminal-content">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div class="step-code">
+            <span class="comment"># Initialize a post-quantum Root CA</span>
+            <div class="cmd-line">
+              <span class="prompt">$</span>
+              <span class="command">qpki ca init --algorithm ml-dsa-65 --cn <span class="string">"Acme Root CA"</span> --org <span class="string">"Acme Corp"</span></span>
+            </div>
+            <div class="output-line">
+              <span class="check">&#10003;</span> Root CA initialized · algorithm: <span class="val">ML-DSA-65</span> · expires: <span class="val">2035-01-01</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-sep"></div>
+
+        <div class="step">
+          <span class="step-num">2</span>
+          <div class="step-code">
+            <span class="comment"># Create an issuing sub-CA</span>
+            <div class="cmd-line">
+              <span class="prompt">$</span>
+              <span class="command">qpki ca create-sub --cn <span class="string">"Acme Issuing CA"</span> --parent root</span>
+            </div>
+            <div class="output-line">
+              <span class="check">&#10003;</span> Sub-CA created · signed by: <span class="val">Acme Root CA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-sep"></div>
+
+        <div class="step">
+          <span class="step-num">3</span>
+          <div class="step-code">
+            <span class="comment"># Issue a server certificate</span>
+            <div class="cmd-line">
+              <span class="prompt">$</span>
+              <span class="command">qpki cert issue --profile server --cn <span class="string">"api.acme.com"</span> --san <span class="string">"*.acme.com"</span></span>
+            </div>
+            <div class="output-line">
+              <span class="check">&#10003;</span> Certificate issued · SAN: <span class="val">*.acme.com</span> · valid: <span class="val">365 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .code-section {
+    padding: 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--sl-color-white);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--sl-color-gray-3);
+    font-size: 1.125rem;
+    margin: 0 auto 3rem;
+  }
+
+  .showcase-terminal {
+    background: #12141c;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    box-shadow:
+      0 32px 64px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 0 80px rgba(255, 85, 163, 0.03);
+  }
+
+  .terminal-chrome {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .chrome-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .chrome-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .chrome-dots span:first-child { background: #ff5f57; }
+  .chrome-dots span:nth-child(2) { background: #febc2e; }
+  .chrome-dots span:nth-child(3) { background: #28c840; }
+
+  .chrome-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: var(--q-font-mono, monospace);
+  }
+
+  .chrome-spacer {
+    width: 52px;
+  }
+
+  .terminal-content {
+    padding: 1.5rem 2rem 2rem;
+    font-family: var(--q-font-mono, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: rgba(255, 85, 163, 0.1);
+    color: #FF55A3;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 0.15rem;
+  }
+
+  .step-code {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .comment {
+    color: #64748b;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .cmd-line {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .prompt {
+    color: #FF55A3;
+    margin-right: 8px;
+    user-select: none;
+  }
+
+  .command {
+    color: #e2e8f0;
+  }
+
+  .string {
+    color: #22c55e;
+  }
+
+  .output-line {
+    color: #94a3b8;
+    margin-top: 0.25rem;
+  }
+
+  .check {
+    color: #22c55e;
+    margin-right: 4px;
+  }
+
+  .val {
+    color: #FF55A3;
+  }
+
+  .step-sep {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.04);
+    margin: 1.25rem 0 1.25rem 3.25rem;
+  }
+
+  /* Light mode */
+  :root[data-theme='light'] .showcase-terminal {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.1);
+  }
+
+  :root[data-theme='light'] .terminal-chrome {
+    background: #f1f5f9;
+    border-bottom-color: #e2e8f0;
+  }
+
+  :root[data-theme='light'] .chrome-title {
+    color: #94a3b8;
+  }
+
+  :root[data-theme='light'] .command {
+    color: #1e293b;
+  }
+
+  :root[data-theme='light'] .prompt {
+    color: #005BC5;
+  }
+
+  :root[data-theme='light'] .val {
+    color: #005BC5;
+  }
+
+  :root[data-theme='light'] .step-num {
+    background: rgba(0, 91, 197, 0.08);
+    color: #005BC5;
+  }
+
+  :root[data-theme='light'] .step-sep {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .terminal-content {
+      padding: 1rem;
+      font-size: 0.7rem;
+    }
+
+    .step-num {
+      display: none;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,217 @@
+---
+/**
+ * TerminalDemo - Animated terminal showing QPKI in action
+ * CSS-only typing animation with realistic terminal chrome
+ */
+---
+
+<div class="terminal-container not-content">
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <span class="terminal-title">Terminal</span>
+      <div class="terminal-spacer"></div>
+    </div>
+    <div class="terminal-body">
+      <div class="line line-1">
+        <span class="prompt">$</span>
+        <span class="cmd">brew install qentriq/tap/qpki</span>
+      </div>
+      <div class="line line-2 output">
+        <span class="success">&#10003;</span> qpki 1.0 installed
+      </div>
+      <div class="line line-3">
+        <span class="prompt">$</span>
+        <span class="cmd">qpki ca init --algorithm ml-dsa-65 --cn "My PQ Root CA"</span>
+      </div>
+      <div class="line line-4 output">
+        <span class="success">&#10003;</span> Root CA created with <span class="highlight">ML-DSA-65</span>
+      </div>
+      <div class="line line-5">
+        <span class="prompt">$</span>
+        <span class="cmd">qpki cert issue --profile server --cn "api.example.com"</span>
+      </div>
+      <div class="line line-6 output">
+        <span class="success">&#10003;</span> Post-quantum certificate issued <span class="dim">· valid 365d</span>
+      </div>
+      <div class="line line-cursor">
+        <span class="prompt">$</span>
+        <span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .terminal-container {
+    max-width: 720px;
+    margin: 2rem auto 0;
+    perspective: 1000px;
+  }
+
+  .terminal {
+    background: #1a1d27;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--q-font-mono, monospace);
+  }
+
+  .terminal-spacer {
+    width: 52px;
+  }
+
+  .terminal-body {
+    padding: 20px 24px;
+    font-family: var(--q-font-mono, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace);
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .line {
+    opacity: 0;
+    transform: translateY(4px);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .prompt {
+    color: #FF55A3;
+    margin-right: 8px;
+    user-select: none;
+  }
+
+  .cmd {
+    color: #e2e8f0;
+  }
+
+  .output {
+    color: #94a3b8;
+    padding-left: 1.2rem;
+  }
+
+  .success {
+    color: #22c55e;
+    margin-right: 4px;
+  }
+
+  .highlight {
+    color: #FF55A3;
+    font-weight: 600;
+  }
+
+  .dim {
+    color: #64748b;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    background: #FF55A3;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Staggered fade-in animation */
+  .line-1 { animation: fadeIn 0.4s ease forwards 0.5s; }
+  .line-2 { animation: fadeIn 0.4s ease forwards 1.2s; }
+  .line-3 { animation: fadeIn 0.4s ease forwards 2.0s; }
+  .line-4 { animation: fadeIn 0.4s ease forwards 2.8s; }
+  .line-5 { animation: fadeIn 0.4s ease forwards 3.5s; }
+  .line-6 { animation: fadeIn 0.4s ease forwards 4.2s; }
+  .line-cursor { animation: fadeIn 0.3s ease forwards 4.8s; }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* Light mode */
+  :root[data-theme='light'] .terminal {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  :root[data-theme='light'] .terminal-header {
+    background: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  :root[data-theme='light'] .terminal-title {
+    color: #94a3b8;
+  }
+
+  :root[data-theme='light'] .cmd {
+    color: #1e293b;
+  }
+
+  :root[data-theme='light'] .output {
+    color: #64748b;
+  }
+
+  :root[data-theme='light'] .cursor {
+    background: #005BC5;
+  }
+
+  :root[data-theme='light'] .prompt {
+    color: #005BC5;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .terminal-body {
+      font-size: 0.7rem;
+      padding: 16px;
+      overflow-x: auto;
+    }
+  }
+</style>
