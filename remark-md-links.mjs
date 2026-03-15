@@ -18,7 +18,10 @@ export function remarkMdLinks() {
     const isQlab = currentDir.startsWith('qlab') || isQlabRepo;
 
     visit(tree, 'link', (node) => {
-      if (node.url && node.url.endsWith('.md') && !node.url.startsWith('http')) {
+      if (!node.url || node.url.startsWith('http')) return;
+
+      // Handle .md links
+      if (node.url.endsWith('.md')) {
         let resolvedPath;
 
         // QPKI: docs/... links from README.md (repo root) → qpki/...
@@ -54,6 +57,11 @@ export function remarkMdLinks() {
         resolvedPath = path.normalize(resolvedPath).replace(/\\/g, '/');
 
         node.url = `/${resolvedPath}/`;
+      }
+      // Handle QLAB journey directory links (e.g. journey/00-revelation/)
+      else if (isQlab && /^journey\/\d{2}-[^/]+\/?$/.test(node.url)) {
+        const dir = node.url.replace(/\/$/, '');
+        node.url = `/qlab/${dir}/readme/`;
       }
     });
   };
