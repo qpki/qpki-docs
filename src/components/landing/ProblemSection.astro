@@ -1,6 +1,6 @@
 ---
 /**
- * ProblemSection - "Why Now?" with timeline and HNDL diagram
+ * ProblemSection - "Why Now?" with cards and timeline
  * Creates urgency about the quantum threat
  */
 ---
@@ -58,12 +58,12 @@
     <div class="timeline timeline-desktop fade-in">
       <div class="timeline-line"></div>
       <div class="timeline-point" style="left: 0%">
-        <div class="timeline-dot active"></div>
+        <div class="timeline-dot completed"></div>
         <span class="timeline-label">2024</span>
         <span class="timeline-desc">NIST standards finalized</span>
       </div>
       <div class="timeline-point" style="left: 33%">
-        <div class="timeline-dot"></div>
+        <div class="timeline-dot completed"></div>
         <span class="timeline-label">2025</span>
         <span class="timeline-desc">Early adopters migrate</span>
       </div>
@@ -82,11 +82,11 @@
 
     <!-- Timeline (mobile: vertical compact) -->
     <div class="timeline-mobile fade-in">
-      <div class="timeline-mobile-item active">
+      <div class="timeline-mobile-item completed">
         <span class="timeline-mobile-year">2024</span>
         <span class="timeline-mobile-desc">NIST standards finalized</span>
       </div>
-      <div class="timeline-mobile-item">
+      <div class="timeline-mobile-item completed">
         <span class="timeline-mobile-year">2025</span>
         <span class="timeline-mobile-desc">Early adopters migrate</span>
       </div>
@@ -171,6 +171,16 @@
     color: var(--sl-color-accent-high);
   }
 
+  /* Light mode cards */
+  :root[data-theme='light'] .problem-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  :root[data-theme='light'] .problem-card:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+  }
+
   /* Timeline */
   .timeline {
     position: relative;
@@ -192,9 +202,9 @@
     position: absolute;
     top: 2rem;
     left: 2rem;
-    width: 15%;
+    width: 44%;
     height: 2px;
-    background: linear-gradient(90deg, #FF55A3, #005BC5);
+    background: linear-gradient(90deg, #22c55e 60%, #FF55A3 100%);
     border-radius: 1px;
   }
 
@@ -210,7 +220,7 @@
 
   /* Adjust positions to account for padding */
   .timeline-point:nth-child(2) { left: calc(2rem) !important; }
-  .timeline-point:nth-child(3) { left: calc(2rem + 33% * (100% - 4rem) / 100%) !important; left: 33% !important; }
+  .timeline-point:nth-child(3) { left: 33% !important; }
   .timeline-point:nth-child(4) { left: 66% !important; }
   .timeline-point:nth-child(5) { left: calc(100% - 2rem) !important; }
 
@@ -223,6 +233,10 @@
     margin-top: -6px;
     position: relative;
     z-index: 1;
+  }
+
+  .timeline-dot.completed {
+    background: #22c55e;
   }
 
   .timeline-dot.active {
@@ -245,16 +259,6 @@
     font-size: 0.75rem;
     color: var(--sl-color-gray-4);
     white-space: nowrap;
-  }
-
-  /* Light mode */
-  :root[data-theme='light'] .problem-card {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.08);
-  }
-
-  :root[data-theme='light'] .problem-card:hover {
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
   }
 
   /* Mobile timeline (vertical) */
@@ -280,6 +284,14 @@
     height: 8px;
     border-radius: 50%;
     background: var(--sl-color-gray-5);
+  }
+
+  .timeline-mobile-item.completed {
+    border-left-color: #22c55e;
+  }
+
+  .timeline-mobile-item.completed::before {
+    background: #22c55e;
   }
 
   .timeline-mobile-item.active {

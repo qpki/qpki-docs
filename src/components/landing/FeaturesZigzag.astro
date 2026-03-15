@@ -8,7 +8,7 @@
 <section class="features-section not-content">
   <div class="section-inner">
     <h2 class="section-title">Built for the Quantum Era</h2>
-    <p class="section-subtitle">Everything you need to deploy post-quantum PKI in production.</p>
+    <p class="section-subtitle">What makes QPKI different.</p>
 
     <!-- Feature 1: Post-Quantum Ready -->
     <div class="feature-row fade-in">
@@ -56,58 +56,31 @@
       </div>
     </div>
 
-    <!-- Feature 3: CLI-First -->
+    <!-- Feature 3: Crypto-Agile -->
     <div class="feature-row fade-in">
       <div class="feature-text">
-        <span class="feature-badge green">DevOps</span>
-        <h3>CLI-First</h3>
-        <p>Single binary, zero dependencies. Script everything. Works in CI/CD pipelines, containers, and air-gapped environments. Install in seconds.</p>
+        <span class="feature-badge blue">Migration</span>
+        <h3>Crypto-Agile by Design</h3>
+        <p>Enroll credentials today, rotate to new algorithms tomorrow. Declarative profiles make migration a one-line operation.</p>
       </div>
       <div class="feature-code">
         <div class="mini-terminal">
           <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># One-line install</span>
-<span class="p">$</span> brew install qentriq/tap/qpki
+          <pre><code><span class="c"># Enroll with classical crypto</span>
+<span class="p">$</span> qpki credential enroll <span class="h">api-server</span> \
+    --profile <span class="h">ecdsa/tls-server</span> ...
+<span class="o">&#10003; Credential enrolled · ECDSA-P256</span>
 
-<span class="c"># Or download binary</span>
-<span class="p">$</span> curl -sSL <span class="h">get.qpki.io</span> | sh
-
-<span class="o">&#10003; qpki v1.0 ready</span></code></pre>
+<span class="c"># Rotate to post-quantum</span>
+<span class="p">$</span> qpki credential rotate <span class="h">api-server</span> \
+    --profile <span class="h">ml/tls-server</span>
+<span class="o">&#10003; Rotated to ML-DSA-65</span></code></pre>
         </div>
       </div>
     </div>
 
-    <!-- Feature 4: Battle-Tested (reversed) -->
+    <!-- Feature 4: HSM Support (reversed) -->
     <div class="feature-row reversed fade-in">
-      <div class="feature-text">
-        <span class="feature-badge orange">Quality</span>
-        <h3>Cross-Verified</h3>
-        <p>Cross-validated with OpenSSL and BouncyCastle. Standards-compliant X.509 certificates. Full RFC compliance for OCSP, TSA, CRL, and CMS.</p>
-      </div>
-      <div class="feature-code">
-        <div class="compat-grid">
-          <div class="compat-item">
-            <span class="compat-check">&#10003;</span>
-            <span>OpenSSL</span>
-          </div>
-          <div class="compat-item">
-            <span class="compat-check">&#10003;</span>
-            <span>BouncyCastle</span>
-          </div>
-          <div class="compat-item">
-            <span class="compat-check">&#10003;</span>
-            <span>X.509 v3</span>
-          </div>
-          <div class="compat-item">
-            <span class="compat-check">&#10003;</span>
-            <span>OCSP / CRL</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 5: HSM Support -->
-    <div class="feature-row fade-in">
       <div class="feature-text">
         <span class="feature-badge purple">Enterprise</span>
         <h3>HSM Ready</h3>
@@ -127,8 +100,8 @@
       </div>
     </div>
 
-    <!-- Feature 6: CMS Encryption (reversed) -->
-    <div class="feature-row reversed fade-in">
+    <!-- Feature 5: CMS Encryption -->
+    <div class="feature-row fade-in">
       <div class="feature-text">
         <span class="feature-badge blue">Encryption</span>
         <h3>Post-Quantum Encryption</h3>
@@ -219,12 +192,6 @@
     border-color: rgba(34, 197, 94, 0.25);
   }
 
-  .feature-badge.orange {
-    background: rgba(234, 179, 8, 0.1);
-    color: #eab308;
-    border-color: rgba(234, 179, 8, 0.25);
-  }
-
   .feature-badge.purple {
     background: rgba(168, 85, 247, 0.1);
     color: #a855f7;
@@ -288,38 +255,6 @@
   .mini-terminal .h { color: #FF55A3; font-weight: 600; }
   .mini-terminal .o { color: #22c55e; }
 
-  /* Compat grid */
-  .compat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .compat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(255, 255, 255, 0.02);
-    font-size: 0.9rem;
-    color: var(--sl-color-gray-2);
-    transition: all 0.2s ease;
-  }
-
-  .compat-item:hover {
-    border-color: rgba(34, 197, 94, 0.3);
-  }
-
-  .compat-check {
-    color: #22c55e;
-    font-weight: 700;
-    flex-shrink: 0;
-    width: 1.25rem;
-    text-align: center;
-  }
-
   /* Light mode */
   :root[data-theme='light'] .mini-terminal {
     background: var(--q-terminal-bg-light);
@@ -339,11 +274,6 @@
   :root[data-theme='light'] .mini-terminal .c { color: #94a3b8; }
   :root[data-theme='light'] .mini-terminal .p { color: #005BC5; }
   :root[data-theme='light'] .mini-terminal .h { color: #005BC5; }
-
-  :root[data-theme='light'] .compat-item {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.08);
-  }
 
   /* Responsive */
   @media (max-width: 768px) {

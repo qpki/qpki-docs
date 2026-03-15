@@ -25,7 +25,7 @@
             <span class="comment"># Initialize a post-quantum Root CA</span>
             <div class="cmd-line">
               <span class="prompt">$</span>
-              <span class="command">qpki ca init --profile ml/root-ca --var cn=<span class="string">"Acme Root CA"</span> --var organization=<span class="string">"Acme Corp"</span></span>
+              <span class="command">qpki ca init --profile ml/root-ca --var cn=<span class="string">"Acme Root CA"</span> --var o=<span class="string">"Acme Corp"</span></span>
             </div>
             <div class="output-line">
               <span class="check">&#10003;</span> Root CA initialized · algorithm: <span class="val">ML-DSA-65</span> · expires: <span class="val">2035-01-01</span>
@@ -57,7 +57,7 @@
             <span class="comment"># Issue a server certificate</span>
             <div class="cmd-line">
               <span class="prompt">$</span>
-              <span class="command">qpki credential enroll --profile ml/tls-server-sign --var cn=<span class="string">"api.acme.com"</span> --var san=<span class="string">"*.acme.com"</span></span>
+              <span class="command">qpki credential enroll --profile ml/tls-server --var cn=<span class="string">"api.acme.com"</span> --var san=<span class="string">"*.acme.com"</span></span>
             </div>
             <div class="output-line">
               <span class="check">&#10003;</span> Certificate issued · SAN: <span class="val">*.acme.com</span> · valid: <span class="val">365 days</span>
@@ -77,7 +77,7 @@
 <style>
   .code-section {
     padding: 5rem 1.5rem;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -185,7 +185,7 @@
   .cmd-line {
     white-space: nowrap;
     overflow-x: auto;
-    padding-bottom: 2px;
+    padding-bottom: 10px;
   }
 
   .prompt {
