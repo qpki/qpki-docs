@@ -5,10 +5,10 @@
  */
 ---
 
-<div class="terminal-container not-content">
+<div class="terminal-container not-content" aria-label="Terminal demo showing QPKI installation and certificate issuance" role="img">
   <div class="terminal">
     <div class="terminal-header">
-      <div class="terminal-dots">
+      <div class="terminal-dots" aria-hidden="true">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
         <span class="dot dot-green"></span>
@@ -18,28 +18,28 @@
     </div>
     <div class="terminal-body">
       <div class="line line-1">
-        <span class="prompt">$</span>
+        <span class="prompt" aria-hidden="true">$</span>
         <span class="cmd">curl -sSL get.qpki.io | sh</span>
       </div>
       <div class="line line-2 output">
         <span class="success">&#10003;</span> Installed qpki v1.0 to /usr/local/bin
       </div>
       <div class="line line-3">
-        <span class="prompt">$</span>
+        <span class="prompt" aria-hidden="true">$</span>
         <span class="cmd">qpki ca init --algorithm ml-dsa-65 --cn "My PQ Root CA"</span>
       </div>
       <div class="line line-4 output">
         <span class="success">&#10003;</span> Root CA created with <span class="highlight">ML-DSA-65</span>
       </div>
       <div class="line line-5">
-        <span class="prompt">$</span>
+        <span class="prompt" aria-hidden="true">$</span>
         <span class="cmd">qpki cert issue --profile server --cn "api.example.com"</span>
       </div>
       <div class="line line-6 output">
         <span class="success">&#10003;</span> Post-quantum certificate issued <span class="dim">· valid 365d</span>
       </div>
       <div class="line line-cursor">
-        <span class="prompt">$</span>
+        <span class="prompt" aria-hidden="true">$</span>
         <span class="cursor"></span>
       </div>
     </div>
