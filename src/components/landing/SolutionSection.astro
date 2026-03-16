@@ -28,7 +28,8 @@
 
         <div class="arch-arrow">
           <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -46,7 +47,8 @@
 
         <div class="arch-arrow">
           <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -61,12 +63,13 @@
             </svg>
           </div>
           <span class="arch-label">Certificates</span>
-          <span class="arch-desc">X.509 PQ & Hybrid</span>
+          <span class="arch-desc">PQ, Hybrid & Classical</span>
         </div>
 
         <div class="arch-arrow">
           <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="var(--sl-color-gray-4)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
+            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -160,7 +163,7 @@
     align-items: center;
     gap: 0.5rem;
     padding: 1.5rem 1rem;
-    border-radius: 12px;
+    border-radius: 16px;
     transition: all 0.3s ease;
     width: 180px;
     flex-shrink: 0;
@@ -168,26 +171,30 @@
   }
 
   .arch-node:hover {
-    background: rgba(255, 85, 163, 0.05);
-    transform: translateY(-2px);
+    background: rgba(255, 85, 163, 0.06);
+    transform: translateY(-4px);
   }
 
   .arch-icon {
     color: var(--sl-color-gray-3);
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255, 85, 163, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .arch-label {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--sl-color-white);
   }
 
   .arch-desc {
-    font-size: 0.75rem;
-    color: var(--sl-color-gray-4);
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
     text-align: center;
     white-space: nowrap;
   }
@@ -196,7 +203,8 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    opacity: 0.5;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 4px rgba(255, 85, 163, 0.2));
   }
 
   /* Algorithms bar */
@@ -272,7 +280,7 @@
   @media (max-width: 768px) {
     .arch-flow {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 0.75rem;
     }
 

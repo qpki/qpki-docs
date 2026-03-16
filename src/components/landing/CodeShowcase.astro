@@ -7,8 +7,8 @@
 
 <section class="code-section not-content">
   <div class="section-inner">
-    <h2 class="section-title">3 Commands. 1 Post-Quantum CA.</h2>
-    <p class="section-subtitle">From zero to quantum-safe certificates in under a minute.</p>
+    <h2 class="section-title">3 Commands. 1 Hybrid CA.</h2>
+    <p class="section-subtitle">From zero to backward-compatible, quantum-safe certificates in under a minute.</p>
 
     <div class="showcase-terminal fade-in">
       <div class="terminal-chrome">
@@ -22,13 +22,13 @@
         <div class="step">
           <span class="step-num">1</span>
           <div class="step-code">
-            <span class="comment"># Initialize a post-quantum Root CA</span>
+            <span class="comment"># Initialize a hybrid Root CA</span>
             <div class="cmd-line">
               <span class="prompt">$</span>
-              <span class="command">qpki ca init --profile ml/root-ca --var cn=<span class="string">"Acme Root CA"</span> --var o=<span class="string">"Acme Corp"</span></span>
+              <span class="command">qpki ca init --profile hybrid/catalyst/root-ca --var cn=<span class="string">"Acme Root CA"</span> --var o=<span class="string">"Acme Corp"</span></span>
             </div>
             <div class="output-line">
-              <span class="check">&#10003;</span> Root CA initialized · algorithm: <span class="val">ML-DSA-65</span> · expires: <span class="val">2035-01-01</span>
+              <span class="check">&#10003;</span> Root CA initialized · <span class="val">Catalyst ECDSA+ML-DSA</span> · expires: <span class="val">2035-01-01</span>
             </div>
           </div>
         </div>
@@ -38,10 +38,10 @@
         <div class="step">
           <span class="step-num">2</span>
           <div class="step-code">
-            <span class="comment"># Create an issuing sub-CA</span>
+            <span class="comment"># Create a hybrid issuing sub-CA</span>
             <div class="cmd-line">
               <span class="prompt">$</span>
-              <span class="command">qpki ca init --profile ml/issuing-ca --parent ./root-ca --var cn=<span class="string">"Acme Issuing CA"</span></span>
+              <span class="command">qpki ca init --profile hybrid/catalyst/issuing-ca --parent ./root-ca --var cn=<span class="string">"Acme Issuing CA"</span></span>
             </div>
             <div class="output-line">
               <span class="check">&#10003;</span> Sub-CA created · signed by: <span class="val">Acme Root CA</span>
@@ -54,13 +54,13 @@
         <div class="step">
           <span class="step-num">3</span>
           <div class="step-code">
-            <span class="comment"># Issue a server certificate</span>
+            <span class="comment"># Issue a hybrid server certificate</span>
             <div class="cmd-line">
               <span class="prompt">$</span>
-              <span class="command">qpki credential enroll --profile ml/tls-server --var cn=<span class="string">"api.acme.com"</span> --var san=<span class="string">"*.acme.com"</span></span>
+              <span class="command">qpki credential enroll --profile hybrid/catalyst/tls-server --var cn=<span class="string">"api.acme.com"</span> --var san=<span class="string">"*.acme.com"</span></span>
             </div>
             <div class="output-line">
-              <span class="check">&#10003;</span> Certificate issued · SAN: <span class="val">*.acme.com</span> · valid: <span class="val">365 days</span>
+              <span class="check">&#10003;</span> Hybrid certificate issued · <span class="val">Catalyst ECDSA+ML-DSA</span> · valid: <span class="val">365 days</span>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@
 <style>
   .code-section {
     padding: 5rem 1.5rem;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 

@@ -15,7 +15,7 @@
       <div class="feature-text">
         <span class="feature-badge">Core</span>
         <h3>Post-Quantum Ready</h3>
-        <p>Native support for NIST post-quantum algorithms. ML-DSA for signatures, ML-KEM for key encapsulation, SLH-DSA for hash-based signatures. Fully FIPS 203/204/205 compliant.</p>
+        <p>PQC via Cloudflare CIRCL — NIST ACVP test vectors validated. ML-DSA for signatures, ML-KEM for key encapsulation, SLH-DSA for hash-based signatures. FIPS 203/204/205 compliant, cross-validated with OpenSSL and BouncyCastle.</p>
       </div>
       <div class="feature-code">
         <div class="mini-terminal">
@@ -24,7 +24,6 @@
 <span class="p">$</span> qpki key generate \
     --algorithm <span class="h">ml-dsa-65</span> \
     --out root-ca.key
-
 <span class="o">&#10003; ML-DSA-65 key pair generated</span></code></pre>
         </div>
       </div>
@@ -45,12 +44,12 @@
     --algorithm <span class="h">ecdsa-p256</span> \
     --hybrid <span class="h">ml-dsa-65</span> \
     --cn "api.example.com"
+<span class="o">&#10003; Hybrid CSR generated</span>
 
 <span class="c"># Issue from hybrid CSR</span>
 <span class="p">$</span> qpki cert issue \
     --profile <span class="h">hybrid/catalyst/tls-server</span> \
     --csr hybrid.csr
-
 <span class="o">&#10003; Hybrid certificate issued</span></code></pre>
         </div>
       </div>
@@ -59,16 +58,16 @@
     <!-- Feature 3: Crypto-Agile -->
     <div class="feature-row fade-in">
       <div class="feature-text">
-        <span class="feature-badge blue">Migration</span>
+        <span class="feature-badge green">Agility</span>
         <h3>Crypto-Agile by Design</h3>
-        <p>Enroll credentials today, rotate to new algorithms tomorrow. Declarative profiles make migration a one-line operation.</p>
+        <p>Each credential bundles multiple certificates — classical and post-quantum — with a coupled lifecycle. Enroll today, rotate to new algorithms tomorrow. Declarative profiles make migration a one-line operation.</p>
       </div>
       <div class="feature-code">
         <div class="mini-terminal">
           <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
           <pre><code><span class="c"># Enroll with classical crypto</span>
 <span class="p">$</span> qpki credential enroll <span class="h">api-server</span> \
-    --profile <span class="h">ecdsa/tls-server</span> ...
+    --profile <span class="h">ec/tls-server</span> ...
 <span class="o">&#10003; Credential enrolled · ECDSA-P256</span>
 
 <span class="c"># Rotate to post-quantum</span>
@@ -94,7 +93,6 @@
     --profile ml/root-ca \
     --hsm-config <span class="h">hsm.yaml</span> \
     --key-label "pq-root-ca"
-
 <span class="o">&#10003; Root CA created · key stored in HSM</span></code></pre>
         </div>
       </div>
@@ -115,7 +113,6 @@
     --recipient <span class="h">alice-ml-kem.crt</span> \
     --in report.pdf \
     --out report.pdf.p7m
-
 <span class="o">&#10003; Encrypted with ML-KEM-768</span></code></pre>
         </div>
       </div>
@@ -243,7 +240,7 @@
 
   .mini-terminal code {
     font-family: var(--q-font-mono, monospace);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.7;
     color: #e2e8f0;
     background: none !important;
