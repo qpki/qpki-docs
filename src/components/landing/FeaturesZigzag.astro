@@ -102,8 +102,34 @@
       </div>
     </div>
 
-    <!-- Feature 5: CMS Encryption -->
+    <!-- Feature 5: Document Signing -->
     <div class="feature-row fade-in">
+      <div class="feature-text">
+        <span class="feature-badge indigo">Signature</span>
+        <h3>Document Signing</h3>
+        <p>CMS signatures with ML-DSA produce detached <code>.p7s</code> proofs that travel alongside any file — contracts, invoices, firmware. Classical signatures can be forged retroactively once quantum computers arrive; ML-DSA signatures remain unforgeable. Verify in one command, no proprietary tooling required.</p>
+        <a href="/qpki/services/cms/" class="feature-link">Learn more &rarr;</a>
+      </div>
+      <div class="feature-code">
+        <div class="mini-terminal">
+          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+          <pre><code><span class="c"># Sign document with ML-DSA</span>
+<span class="p">$</span> qpki cms sign \
+    --data <span class="h">contract.pdf</span> \
+    --credential signer \
+    --out contract.p7s
+<span class="o">&#10003; Signed with ML-DSA-65 (detached)</span>
+
+<span class="c"># Verify signature</span>
+<span class="p">$</span> qpki cms verify contract.p7s \
+    --data contract.pdf --ca ca.crt
+<span class="o">&#10003; Valid · ML-DSA-65</span></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 6: CMS Encryption (reversed) -->
+    <div class="feature-row reversed fade-in">
       <div class="feature-text">
         <span class="feature-badge orange">Encryption</span>
         <h3>Post-Quantum Encryption</h3>
@@ -123,8 +149,8 @@
       </div>
     </div>
 
-    <!-- Feature 6: PQC Timestamping (reversed) -->
-    <div class="feature-row reversed fade-in">
+    <!-- Feature 7: PQC Timestamping -->
+    <div class="feature-row fade-in">
       <div class="feature-text">
         <span class="feature-badge cyan">Long-Term</span>
         <h3>Quantum-Safe Timestamping</h3>
@@ -149,8 +175,8 @@
       </div>
     </div>
 
-    <!-- Feature 7: Post-Quantum Authentication -->
-    <div class="feature-row fade-in">
+    <!-- Feature 8: Post-Quantum Authentication (reversed) -->
+    <div class="feature-row reversed fade-in">
       <div class="feature-text">
         <span class="feature-badge yellow">IAM</span>
         <h3>Post-Quantum IAM Claims</h3>
@@ -266,6 +292,12 @@
     background: rgba(234, 179, 8, 0.1);
     color: #eab308;
     border-color: rgba(234, 179, 8, 0.25);
+  }
+
+  .feature-badge.indigo {
+    background: rgba(129, 140, 248, 0.1);
+    color: #818cf8;
+    border-color: rgba(129, 140, 248, 0.25);
   }
 
   .feature-text h3 {
