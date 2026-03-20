@@ -148,6 +148,30 @@
         </div>
       </div>
     </div>
+
+    <!-- Feature 7: Post-Quantum Authentication -->
+    <div class="feature-row fade-in">
+      <div class="feature-text">
+        <span class="feature-badge yellow">IAM</span>
+        <h3>Post-Quantum IAM Claims</h3>
+        <p>CWT tokens signed with ML-DSA replace vulnerable JWT/JWS for identity, access control, and device attestation. Non-repudiation signatures can be compromised retroactively by quantum computers — ML-DSA tokens protect claims and audit trails today. Hybrid mode ensures backward compatibility.</p>
+        <a href="/qpki/services/cose/" class="feature-link">Learn more &rarr;</a>
+      </div>
+      <div class="feature-code">
+        <div class="mini-terminal">
+          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+          <pre><code><span class="c"># Issue PQ auth token (CWT)</span>
+<span class="p">$</span> qpki cose sign \
+    --cert <span class="h">auth-server.crt</span> \
+    --key auth-server.key \
+    --iss "https://auth.example.com" \
+    --sub "user@example.com" \
+    --exp 1h \
+    -o <span class="h">auth-token.cbor</span>
+<span class="o">&#10003; CWT signed with ML-DSA-65</span></code></pre>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -236,6 +260,12 @@
     background: rgba(6, 182, 212, 0.1);
     color: #06b6d4;
     border-color: rgba(6, 182, 212, 0.25);
+  }
+
+  .feature-badge.yellow {
+    background: rgba(234, 179, 8, 0.1);
+    color: #eab308;
+    border-color: rgba(234, 179, 8, 0.25);
   }
 
   .feature-text h3 {
