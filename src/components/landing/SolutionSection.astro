@@ -1,95 +1,161 @@
 ---
 /**
- * SolutionSection - "What is QPKI?" with architecture diagram
- * Shows the flow: CLI → CA → Certificates → Services
+ * SolutionSection - "Your Entire PKI Stack"
+ * Tree: Core engine → CA + Services → Use cases + Algo bar
  */
 ---
 
 <section class="solution-section not-content">
   <div class="section-inner">
     <h2 class="section-title">Your Entire PKI Stack</h2>
-    <p class="section-subtitle">Everything you need to issue, manage, and verify quantum-safe certificates.</p>
+    <p class="section-subtitle">Everything you need to issue, manage, and verify quantum-safe X.509 certificates.</p>
 
-    <!-- Architecture Diagram -->
-    <div class="arch-diagram fade-in" role="img" aria-label="Architecture: CLI → CA → Certificates → Services (OCSP, CRL, TSA, CMS, COSE)">
-      <div class="arch-flow">
-        <!-- CLI -->
-        <div class="arch-node arch-cli">
-          <div class="arch-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect x="2" y="4" width="28" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M8 14l4 4-4 4" stroke="#FF55A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 22h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-            </svg>
-          </div>
-          <span class="arch-label">CLI</span>
-          <span class="arch-desc">Single binary</span>
-        </div>
-
-        <div class="arch-arrow">
-          <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="arch-diagram">
+      <!-- CLI Interface -->
+      <div class="cli-bar cascade" style="--delay: 0s">
+        <div class="cli-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2" stroke="#60a5fa" stroke-width="1.5"/>
+            <path d="M7 9l3 3-3 3" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13 15h4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-
-        <!-- CA -->
-        <div class="arch-node arch-ca">
-          <div class="arch-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <path d="M16 4l12 6v8c0 6-5 10-12 14C9 28 4 24 4 18v-8l12-6z" stroke="#FF55A3" stroke-width="1.5"/>
-              <path d="M12 16l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="arch-label">CA</span>
-          <span class="arch-desc">Root & Sub CAs</span>
+        <div class="cli-text">
+          <span class="cli-name">CLI — qpki</span>
+          <span class="cli-desc">Single binary · zero dependencies</span>
         </div>
+      </div>
 
-        <div class="arch-arrow">
-          <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Arrow down -->
+      <div class="arrows">
+        <svg width="100%" height="20" aria-hidden="true">
+          <line x1="50%" y1="0" x2="50%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+        </svg>
+        <span class="flow-dot"></span>
+      </div>
+
+      <!-- Core engine -->
+      <div class="core-bar cascade" style="--delay: 0.15s">
+        <div class="core-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" stroke="#FF55A3" stroke-width="1.5"/>
+            <path d="M12 4.5v3M12 16.5v3M4.5 12h3M16.5 12h3M6.7 6.7l2.1 2.1M15.2 15.2l2.1 2.1M6.7 17.3l2.1-2.1M15.2 8.8l2.1-2.1" stroke="#FF55A3" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
+        <div class="core-text">
+          <span class="core-name">Core engine</span>
+          <span class="core-desc">Profiles · Crypto-agility · Credential lifecycle</span>
+        </div>
+      </div>
 
-        <!-- Certificates -->
-        <div class="arch-node arch-cert">
-          <div class="arch-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect x="6" y="4" width="20" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 10h12M10 14h12M10 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-              <circle cx="22" cy="22" r="5" fill="#FF55A3" opacity="0.15" stroke="#FF55A3" stroke-width="1.5"/>
-              <path d="M20 22l1.5 1.5L24 20.5" stroke="#FF55A3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Arrows down -->
+      <div class="arrows">
+        <svg width="100%" height="20" aria-hidden="true">
+          <line x1="25%" y1="0" x2="25%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+          <line x1="75%" y1="0" x2="75%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+        </svg>
+        <span class="flow-dot"></span>
+      </div>
+
+      <!-- PKI layer: CA + Algorithms + Services (3 columns) -->
+      <div class="pki-row">
+        <div class="twin-box box-green cascade" style="--delay: 0.25s">
+          <div class="twin-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3l9 4.5v6c0 4.5-3.75 7.5-9 10.5-5.25-3-9-6-9-10.5v-6L12 3z" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M9 12l2.25 2.25 3.75-4.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="arch-label">Certificates</span>
-          <span class="arch-desc">PQ, Hybrid & Classical</span>
+          <div class="twin-text">
+            <span class="twin-name">CA</span>
+            <span class="twin-desc">Root · Sub · Issuing</span>
+          </div>
         </div>
-
-        <div class="arch-arrow">
-          <svg width="40" height="24" viewBox="0 0 40 24" aria-hidden="true">
-            <defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
-            <path d="M0 12h32M28 6l6 6-6 6" stroke="url(#arrow-grad)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-
-        <!-- Services -->
-        <div class="arch-node arch-services">
-          <div class="arch-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <circle cx="16" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="8" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M16 12v4M12.5 20l-2 2M19.5 20l2 2" stroke="#FF55A3" stroke-width="1.5" stroke-linecap="round"/>
+        <div class="twin-box box-green cascade" style="--delay: 0.3s">
+          <div class="twin-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="4" y="3" width="16" height="18" rx="2" stroke="#22c55e" stroke-width="1.5"/>
+              <circle cx="12" cy="10" r="3" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M12 13v2" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8 18h8" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <span class="arch-label">Services</span>
-          <span class="arch-desc">OCSP · CRL · TSA · CMS · COSE</span>
+          <div class="twin-text">
+            <span class="twin-name">Certificates</span>
+            <span class="twin-desc">X.509 · CSR</span>
+          </div>
+        </div>
+        <div class="twin-box box-green cascade" style="--delay: 0.35s">
+          <div class="twin-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="6" r="3" stroke="#22c55e" stroke-width="1.5"/>
+              <circle cx="6" cy="18" r="3" stroke="#22c55e" stroke-width="1.5"/>
+              <circle cx="18" cy="18" r="3" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M12 9v3M9.4 15l-1.5 1.5M14.6 15l1.5 1.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="twin-text">
+            <span class="twin-name">Services</span>
+            <span class="twin-desc">OCSP · CRL · TSA · CMS · COSE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows down to use cases -->
+      <div class="arrows">
+        <svg width="100%" height="20" aria-hidden="true">
+          <line x1="16.6%" y1="0" x2="16.6%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+          <line x1="50%" y1="0" x2="50%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+          <line x1="83.3%" y1="0" x2="83.3%" y2="20" stroke="url(#bg)" stroke-width="1.5"/>
+        </svg>
+        <span class="flow-dot"></span>
+      </div>
+
+      <!-- Use cases (3 columns) -->
+      <div class="usecase-row">
+        <div class="usecase-card cascade" style="--delay: 0.4s">
+          <div class="usecase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="usecase-text">
+            <span class="usecase-name">TLS / mTLS</span>
+            <span class="usecase-desc">Servers · APIs · IoT</span>
+          </div>
+        </div>
+        <div class="usecase-card cascade" style="--delay: 0.45s">
+          <div class="usecase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <path d="M14 18l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="usecase-text">
+            <span class="usecase-name">Document signing</span>
+            <span class="usecase-desc">CMS · Timestamps</span>
+          </div>
+        </div>
+        <div class="usecase-card cascade" style="--delay: 0.5s">
+          <div class="usecase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M5 20c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 11l1.5 1.5L20 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="usecase-text">
+            <span class="usecase-name">Identity / IAM</span>
+            <span class="usecase-desc">COSE · CWT tokens</span>
+          </div>
         </div>
       </div>
 
       <!-- Algorithms bar -->
-      <div class="algo-bar">
+      <div class="algo-bar cascade" style="--delay: 0.55s">
         <div class="algo-group">
           <span class="algo-label">Post-Quantum</span>
           <div class="algo-tags">
@@ -107,13 +173,36 @@
           </div>
         </div>
         <div class="algo-group">
-          <span class="algo-label">Hybrid Modes</span>
+          <span class="algo-label">Hybrid</span>
           <div class="algo-tags">
             <span class="algo-tag hybrid">Catalyst</span>
             <span class="algo-tag hybrid">Composite</span>
           </div>
         </div>
       </div>
+
+      <!-- Legend -->
+      <div class="legend cascade" style="--delay: 0.6s">
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-blue"></span>
+          <span class="legend-label">Interface</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-pink"></span>
+          <span class="legend-label">Core</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-green"></span>
+          <span class="legend-label">PKI layer</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-orange"></span>
+          <span class="legend-label">Use cases</span>
+        </div>
+      </div>
+
+      <!-- Gradient def -->
+      <svg width="0" height="0" aria-hidden="true"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF55A3"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs></svg>
     </div>
   </div>
 </section>
@@ -121,7 +210,7 @@
 <style>
   .solution-section {
     padding: 5rem 1.5rem;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -145,72 +234,293 @@
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 20px;
-    padding: 3rem 2rem 2rem;
+    padding: 2.5rem 2rem 2rem;
     overflow: hidden;
   }
 
-  .arch-flow {
+  /* 1. Cascade entrance animation (triggered by IntersectionObserver) */
+  @keyframes cascadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .cascade {
+    opacity: 0;
+  }
+
+  .arch-diagram.visible .cascade {
+    animation: cascadeIn 0.5s ease forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  /* Layer spacing */
+  .cli-bar,
+  .core-bar,
+  .pki-row,
+  .usecase-row {
+    margin-bottom: 0.75rem;
+  }
+
+  .usecase-row {
+    margin-bottom: 0;
+  }
+
+  /* CLI bar */
+  .cli-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(96, 165, 250, 0.06);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cli-bar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(96, 165, 250, 0.5);
+  }
+
+  .cli-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
-    flex-wrap: nowrap;
+    transition: box-shadow 0.3s ease;
   }
 
-  .arch-node {
+  .cli-bar:hover .cli-icon {
+    box-shadow: 0 0 16px rgba(96, 165, 250, 0.4);
+  }
+
+  .cli-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    width: 180px;
-    flex-shrink: 0;
-    text-align: center;
   }
 
-  .arch-node:hover {
-    background: rgba(255, 85, 163, 0.06);
-    transform: translateY(-4px);
+  .cli-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #60a5fa;
+    font-family: var(--q-font-mono, monospace);
   }
 
-  .arch-icon {
+  .cli-desc {
+    font-size: 0.75rem;
     color: var(--sl-color-gray-3);
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
+  }
+
+  /* Core engine bar */
+  .core-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
     background: rgba(255, 85, 163, 0.06);
+    border: 1px solid rgba(255, 85, 163, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .core-bar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 85, 163, 0.5);
+  }
+
+  .core-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: rgba(255, 85, 163, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: box-shadow 0.3s ease;
   }
 
-  .arch-label {
-    font-size: 1.1rem;
+  .core-bar:hover .core-icon {
+    box-shadow: 0 0 16px rgba(255, 85, 163, 0.4);
+  }
+
+  .core-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .core-name {
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--sl-color-white);
+    color: #FF55A3;
+    font-family: var(--q-font-mono, monospace);
   }
 
-  .arch-desc {
-    font-size: 0.8rem;
+  .core-desc {
+    font-size: 0.75rem;
     color: var(--sl-color-gray-3);
-    text-align: center;
-    white-space: nowrap;
   }
 
-  .arch-arrow {
-    flex-shrink: 0;
+  /* Animated flow dots */
+  @keyframes flowDown {
+    0% { transform: translateY(-2px); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(18px); opacity: 0; }
+  }
+
+  /* Vertical arrows with flow dots */
+  .arrows {
+    padding: 0;
+    position: relative;
+  }
+
+  .flow-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: #FF55A3;
+    animation: flowDown 1.5s ease-in-out infinite;
+  }
+
+  /* PKI row (CA + Services + Algorithms) */
+  .pki-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .twin-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .twin-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .box-green {
+    background: rgba(34, 197, 94, 0.06);
+    border-color: rgba(34, 197, 94, 0.2);
+  }
+
+  .box-green:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+  }
+
+  .twin-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
     display: flex;
     align-items: center;
-    opacity: 0.7;
-    filter: drop-shadow(0 0 4px rgba(255, 85, 163, 0.2));
+    justify-content: center;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .twin-box:hover .twin-icon {
+    box-shadow: 0 0 16px rgba(34, 197, 94, 0.4);
+  }
+
+  .twin-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .twin-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #22c55e;
+  }
+
+  .twin-desc {
+    font-size: 0.7rem;
+    color: var(--sl-color-gray-3);
+  }
+
+  /* Use cases */
+  .usecase-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .usecase-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    background: rgba(249, 115, 22, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .usecase-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(249, 115, 22, 0.5);
+  }
+
+  .usecase-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f97316;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .usecase-card:hover .usecase-icon {
+    box-shadow: 0 0 16px rgba(249, 115, 22, 0.4);
+  }
+
+  .usecase-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .usecase-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #f97316;
+  }
+
+  .usecase-desc {
+    font-size: 0.7rem;
+    color: var(--sl-color-gray-3);
   }
 
   /* Algorithms bar */
   .algo-bar {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     justify-content: center;
@@ -222,11 +532,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .algo-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--sl-color-gray-4);
@@ -235,22 +545,22 @@
 
   .algo-tags {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.35rem;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .algo-tag {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
-    padding: 0.25rem 0.6rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 6px;
     font-family: var(--q-font-mono, monospace);
   }
 
   .algo-tag.pq {
     background: rgba(255, 85, 163, 0.08);
-    color: var(--sl-color-accent-high);
+    color: #FF55A3;
     border: 1px solid rgba(255, 85, 163, 0.2);
   }
 
@@ -261,9 +571,54 @@
   }
 
   .algo-tag.hybrid {
-    background: rgba(0, 91, 197, 0.1);
+    background: rgba(96, 165, 250, 0.08);
     color: #60a5fa;
-    border: 1px solid rgba(0, 91, 197, 0.25);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
+  /* Legend */
+  .legend {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .legend-dot-blue {
+    background: #60a5fa;
+  }
+
+  .legend-dot-pink {
+    background: #FF55A3;
+  }
+
+  .legend-dot-green {
+    background: #22c55e;
+  }
+
+  .legend-dot-orange {
+    background: #f97316;
+  }
+
+  .legend-label {
+    font-size: 0.65rem;
+    color: var(--sl-color-gray-3);
+    opacity: 0.7;
   }
 
   /* Light mode */
@@ -272,37 +627,113 @@
     border-color: rgba(0, 0, 0, 0.08);
   }
 
+  :root[data-theme='light'] .cli-bar {
+    background: rgba(96, 165, 250, 0.04);
+  }
+
+  :root[data-theme='light'] .core-bar {
+    background: rgba(255, 85, 163, 0.04);
+  }
+
+  :root[data-theme='light'] .box-green {
+    background: rgba(34, 197, 94, 0.04);
+  }
+
+  :root[data-theme='light'] .twin-box:hover,
+  :root[data-theme='light'] .usecase-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
   :root[data-theme='light'] .algo-bar {
     border-top-color: rgba(0, 0, 0, 0.08);
   }
 
   /* Responsive */
   @media (max-width: 768px) {
-    .arch-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
+    .solution-section {
+      padding: 3rem 1rem;
     }
 
-    .arch-arrow {
-      display: none;
+    .section-title {
+      font-size: 1.75rem;
     }
 
-    .arch-node {
-      padding: 1rem 0.5rem;
-      width: auto;
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
     }
 
     .arch-diagram {
-      padding: 1.5rem 1rem;
+      padding: 1.25rem 1rem;
     }
 
-    .algo-bar {
-      gap: 1rem;
+    .cli-bar,
+    .core-bar {
+      padding: 0.6rem 1rem;
+      gap: 0.6rem;
     }
 
-    .algo-group {
-      gap: 0.3rem;
+    .pki-row {
+      grid-template-columns: 1fr;
+    }
+
+    .usecase-row {
+      grid-template-columns: 1fr;
+    }
+
+    .arrows {
+      display: none;
+    }
+
+    .legend {
+      gap: 0.75rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cascade {
+      opacity: 1;
+      animation: none;
+    }
+
+    .arch-diagram.visible .cascade {
+      animation: none;
+      opacity: 1;
+    }
+
+    .flow-dot {
+      display: none;
+    }
+
+    .cli-bar,
+    .core-bar,
+    .twin-box,
+    .usecase-card,
+    .cli-icon,
+    .core-icon,
+    .twin-icon,
+    .usecase-icon {
+      transition: none;
     }
   }
 </style>
+
+<script>
+  const diagram = document.querySelector('.arch-diagram');
+  if (diagram) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          diagram.classList.add('visible');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(diagram);
+  }
+</script>

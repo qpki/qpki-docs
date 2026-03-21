@@ -35,7 +35,7 @@
       <div class="feature-text">
         <span class="feature-badge blue">Migration</span>
         <h3>Hybrid Certificates</h3>
-        <p>Dual-algorithm certificates combine classical with post-quantum algorithms. Backward compatible with existing infrastructure while quantum-safe.</p>
+        <p>Dual-algorithm certificates combine classical with post-quantum algorithms. Two hybrid strategies: Catalyst for gradual migration and Composite for full dual-algorithm binding. Deploy hybrid TLS/mTLS for your servers, APIs, and IoT. Backward compatible with existing infrastructure while quantum-safe.</p>
         <a href="/qpki/migration/hybrid/" class="feature-link">Learn more &rarr;</a>
       </div>
       <div class="feature-code">
@@ -178,7 +178,7 @@
     <!-- Feature 8: Post-Quantum Authentication (reversed) -->
     <div class="feature-row reversed fade-in">
       <div class="feature-text">
-        <span class="feature-badge yellow">IAM</span>
+        <span class="feature-badge yellow">Identity / IAM</span>
         <h3>Secure Tokens</h3>
         <p>COSE/CWT tokens signed with ML-DSA for identity, access control, and device attestation. Compact binary format ideal for IoT and constrained environments. Hybrid mode ensures backward compatibility with existing infrastructure.</p>
         <a href="/qpki/services/cose/" class="feature-link">Learn more &rarr;</a>
@@ -229,7 +229,18 @@
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+  }
+
+  .feature-row:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 85, 163, 0.15);
+    transform: translateY(-2px);
   }
 
   .feature-row:last-child {
@@ -305,6 +316,11 @@
     font-weight: 700;
     color: var(--sl-color-white);
     margin-bottom: 0.75rem;
+    transition: color 0.2s ease;
+  }
+
+  .feature-row:hover .feature-text h3 {
+    color: #FF55A3;
   }
 
   .feature-text p {
@@ -330,7 +346,7 @@
   /* Mini terminal */
   .mini-terminal {
     background: var(--q-terminal-bg);
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -372,6 +388,16 @@
   .mini-terminal .o { color: #22c55e; }
 
   /* Light mode */
+  :root[data-theme='light'] .feature-row {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+
+  :root[data-theme='light'] .feature-row:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 85, 163, 0.2);
+  }
+
   :root[data-theme='light'] .mini-terminal {
     background: var(--q-terminal-bg-light);
     border-color: #e2e8f0;
