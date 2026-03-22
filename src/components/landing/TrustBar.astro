@@ -13,10 +13,15 @@
       <a class="badge badge-fips" href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener noreferrer">FIPS 204 <span class="badge-sub">ML-DSA</span></a>
       <a class="badge badge-fips" href="https://csrc.nist.gov/pubs/fips/205/final" target="_blank" rel="noopener noreferrer">FIPS 205 <span class="badge-sub">SLH-DSA</span></a>
       <span class="badge-sep"></span>
-      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" rel="noopener noreferrer">RFC 5280</a>
-      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9814" target="_blank" rel="noopener noreferrer">RFC 9814</a>
-      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9882" target="_blank" rel="noopener noreferrer">RFC 9882</a>
+      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" rel="noopener noreferrer">RFC 5280 <span class="badge-sub">X.509</span></a>
+      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9881" target="_blank" rel="noopener noreferrer">RFC 9881</a>
+      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9909" target="_blank" rel="noopener noreferrer">RFC 9909</a>
       <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9883" target="_blank" rel="noopener noreferrer">RFC 9883</a>
+      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9882" target="_blank" rel="noopener noreferrer">RFC 9882</a>
+      <a class="badge badge-rfc" href="https://datatracker.ietf.org/doc/html/rfc9814" target="_blank" rel="noopener noreferrer">RFC 9814</a>
+      <span class="badge-sep"></span>
+      <a class="badge badge-itu" href="https://www.itu.int/rec/T-REC-X.509" target="_blank" rel="noopener noreferrer">ITU-T X.509 <span class="badge-sub">Catalyst</span></a>
+      <a class="badge badge-draft" href="https://datatracker.ietf.org/doc/draft-ounsworth-pq-composite-sigs/" target="_blank" rel="noopener noreferrer">Composite <span class="badge-sub">draft</span></a>
     </div>
   </div>
 </section>
@@ -90,6 +95,29 @@
   .badge-rfc:hover {
     border-color: var(--sl-color-gray-4);
     color: var(--sl-color-gray-2);
+  }
+
+  .badge-itu {
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.05);
+  }
+
+  .badge-itu:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+    background: rgba(34, 197, 94, 0.1);
+  }
+
+  .badge-draft {
+    border: 1px dashed var(--sl-color-gray-5);
+    color: var(--sl-color-gray-4);
+    background: transparent;
+    opacity: 0.6;
+  }
+
+  .badge-draft:hover {
+    opacity: 0.85;
+    border-color: var(--sl-color-gray-4);
   }
 
   .badge-sep {

@@ -17,6 +17,13 @@
           <span class="brand-name">QPKI</span>
         </div>
         <p class="brand-desc">Post-quantum PKI toolkit.<br>Open source. Standards-compliant.</p>
+        <a href="mailto:remi.blancher@proton.me" class="brand-contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 4L12 13 2 4"/>
+          </svg>
+          Contact us
+        </a>
       </div>
 
       <!-- Product -->
@@ -95,6 +102,21 @@
     color: var(--sl-color-gray-4);
     font-size: 0.85rem;
     line-height: 1.6;
+  }
+
+  .brand-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .brand-contact:hover {
+    color: #FF55A3;
   }
 
   .footer-col h4 {
