@@ -303,6 +303,15 @@ img[src*="github.com"][src*="badge"] {
 	display: none;
 }
 
+/* Site title - explicit color for Lighthouse contrast resolution */
+.site-title {
+	color: #FF7BB8 !important;
+}
+
+:root[data-theme='light'] .site-title {
+	color: #D93D85 !important;
+}
+
 /* GitHub icon in header */
 .social-icons a {
 	color: var(--sl-color-gray-3);
@@ -337,24 +346,26 @@ img[src*="github.com"][src*="badge"] {
 }
 
 /* Actions buttons - style premium */
-[data-has-hero] .actions a[data-variant="primary"] {
+[data-has-hero] .actions .sl-link-button.primary {
 	background: linear-gradient(135deg, #D03F82, #B33570);
+	color: #ffffff;
 	box-shadow: 0 4px 15px rgba(208, 63, 130, 0.3);
 	transition: all 0.2s ease;
 }
 
-[data-has-hero] .actions a[data-variant="primary"]:hover {
+[data-has-hero] .actions .sl-link-button.primary:hover {
+	color: #ffffff;
 	box-shadow: 0 6px 25px rgba(208, 63, 130, 0.5);
 	transform: translateY(-1px);
 }
 
-[data-has-hero] .actions a[data-variant="secondary"] {
+[data-has-hero] .actions .sl-link-button.secondary {
 	transition: all 0.2s ease;
 }
 
-[data-has-hero] .actions a[data-variant="secondary"]:hover {
+[data-has-hero] .actions .sl-link-button.secondary:hover {
 	transform: translateY(-1px);
-	background: rgba(255, 255, 255, 0.05);
+	background: #21242c;
 }
 
 /* Landing sections — full width content */
