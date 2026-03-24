@@ -338,13 +338,13 @@ img[src*="github.com"][src*="badge"] {
 
 /* Actions buttons - style premium */
 [data-has-hero] .actions a[data-variant="primary"] {
-	background: linear-gradient(135deg, #FF55A3, #E04A90);
-	box-shadow: 0 4px 15px rgba(255, 85, 163, 0.3);
+	background: linear-gradient(135deg, #D03F82, #B33570);
+	box-shadow: 0 4px 15px rgba(208, 63, 130, 0.3);
 	transition: all 0.2s ease;
 }
 
 [data-has-hero] .actions a[data-variant="primary"]:hover {
-	box-shadow: 0 6px 25px rgba(255, 85, 163, 0.5);
+	box-shadow: 0 6px 25px rgba(208, 63, 130, 0.5);
 	transform: translateY(-1px);
 }
 
@@ -397,14 +397,14 @@ img[src*="github.com"][src*="badge"] {
 }
 
 .q-btn-primary {
-	background: linear-gradient(135deg, #FF55A3, #E04A90);
+	background: linear-gradient(135deg, #D03F82, #B33570);
 	color: white;
-	box-shadow: 0 4px 15px rgba(255, 85, 163, 0.3);
+	box-shadow: 0 4px 15px rgba(208, 63, 130, 0.3);
 }
 
 .q-btn-primary:hover {
 	transform: translateY(-1px);
-	box-shadow: 0 6px 25px rgba(255, 85, 163, 0.5);
+	box-shadow: 0 6px 25px rgba(208, 63, 130, 0.5);
 }
 
 .q-btn-accent {
