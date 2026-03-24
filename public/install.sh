@@ -126,7 +126,7 @@ main() {
   chmod +x "${INSTALL_DIR}/${BINARY}"
 
   ok "Installed ${BINARY} ${VERSION} to ${INSTALL_DIR}/${BINARY}"
-  printf "\n  Run ${CYAN}qpki version${RESET} to verify.\n"
+  printf "\n  Run ${CYAN}qpki --version${RESET} to verify.\n"
   printf "  Get started: ${CYAN}https://qpki.io/qpki/getting-started/quick-start/${RESET}\n\n"
 }
 

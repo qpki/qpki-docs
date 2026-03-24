@@ -90,7 +90,7 @@ try {
     Write-Host ""
     Write-Host "  Installed $Binary $VersionTag to $InstallDir\$Binary.exe" -ForegroundColor Green
     Write-Host ""
-    Write-Host "  Restart your terminal, then run: qpki version" -ForegroundColor Cyan
+    Write-Host "  Restart your terminal, then run: qpki --version" -ForegroundColor Cyan
     Write-Host "  Get started: https://qpki.io/qpki/getting-started/quick-start/" -ForegroundColor Cyan
     Write-Host ""
 
