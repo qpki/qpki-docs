@@ -163,14 +163,14 @@ body,
  * FILE TREE (arborescences)
  * ======================================== */
 starlight-file-tree {
-	background-color: #052b5d !important;
-	border: 1px solid #0a4080;
+	background-color: #0B3D91 !important;
+	border: 1px solid rgba(11, 61, 145, 0.6);
 	border-radius: 8px;
 	padding: 1rem;
 }
 
 starlight-file-tree ul {
-	border-left-color: #0a4080;
+	border-left-color: rgba(11, 61, 145, 0.6);
 }
 
 starlight-file-tree .directory > details > summary:hover {
@@ -188,8 +188,8 @@ starlight-file-tree .directory > details > summary:hover {
 }
 
 .sl-link-card:hover {
-	border-color: #0a4080;
-	background-color: #052b5d;
+	border-color: rgba(11, 61, 145, 0.6);
+	background-color: #0B3D91;
 }
 
 .card {
@@ -200,7 +200,7 @@ starlight-file-tree .directory > details > summary:hover {
 }
 
 .card:hover {
-	border-color: #0a4080;
+	border-color: rgba(11, 61, 145, 0.6);
 }
 
 /* ========================================
@@ -258,7 +258,7 @@ tr:last-child td {
  * INLINE CODE
  * ======================================== */
 :not(pre) > code {
-	background-color: rgba(5, 43, 93, 0.5);
+	background-color: rgba(11, 61, 145, 0.5);
 	padding: 2px 6px;
 	border-radius: 4px;
 	font-size: 0.9em;
@@ -419,14 +419,14 @@ img[src*="github.com"][src*="badge"] {
 }
 
 .q-btn-accent {
-	background: linear-gradient(135deg, #005BC5, #0070f3);
+	background: linear-gradient(135deg, #0B3D91, #1a5fc4);
 	color: white;
-	box-shadow: 0 4px 15px rgba(0, 91, 197, 0.3);
+	box-shadow: 0 4px 15px rgba(11, 61, 145, 0.3);
 }
 
 .q-btn-accent:hover {
 	transform: translateY(-1px);
-	box-shadow: 0 6px 25px rgba(0, 91, 197, 0.4);
+	box-shadow: 0 6px 25px rgba(11, 61, 145, 0.4);
 }
 
 .q-btn-secondary {

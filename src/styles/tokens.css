@@ -8,13 +8,10 @@
    * QUANTUM PALETTE - Dark Mode
    * Deep Tech / Crypto-Agile Design
    * ======================================== */
-  --q-dark-bg: #0A0E1F;
-  --q-deep-blue: #1A1A5E;
+  --q-dark-bg: #0D1117;
   --q-quantum-pink: #FF55A3;
-  --q-cobalt: #005BC5;
-  --q-vaultinum-blue: #052b5d;
-  --q-vaultinum-light: #0a4080;
-  --q-terminal-bg: #1a1d27;
+  --q-cobalt: #0B3D91;
+  --q-terminal-bg: #161b22;
   --q-terminal-bg-light: #f8fafc;
 
   /* Accent colors (Starlight integration) */
@@ -25,10 +22,10 @@
   /* ========================================
    * GRAY SCALE (Quantum-adapted)
    * ======================================== */
-  --q-gray-1: #0A0E1F;
-  --q-gray-2: #121630;
-  --q-gray-3: #1A1A5E;
-  --q-gray-4: #2A2A6E;
+  --q-gray-1: #0D1117;
+  --q-gray-2: #161b22;
+  --q-gray-3: #21262d;
+  --q-gray-4: #30363d;
   --q-gray-5: #6B7280;
   --q-gray-6: #9CA3AF;
   --q-gray-7: #D1D5DB;
@@ -103,8 +100,8 @@
   --sl-color-accent: #FF55A3;
   --sl-color-accent-high: #D93D85;
 
-  --q-gray-1: #0A0E1F;
-  --q-gray-2: #1A1A5E;
+  --q-gray-1: #0D1117;
+  --q-gray-2: #1c2128;
   --q-gray-3: #374151;
   --q-gray-4: #6B7280;
   --q-gray-5: #9CA3AF;
