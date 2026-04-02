@@ -16,6 +16,10 @@ hero:
       link: https://github.com/qpki/qpki
       icon: github
       variant: secondary
+    - text: Try the Labs
+      link: /qlab/overview/
+      icon: right-arrow
+      variant: minimal
 ---
 
 import TerminalDemo from '../../components/landing/TerminalDemo.astro';
@@ -25,7 +29,6 @@ import SolutionSection from '../../components/landing/SolutionSection.astro';
 import FeaturesZigzag from '../../components/landing/FeaturesZigzag.astro';
 import CodeShowcase from '../../components/landing/CodeShowcase.astro';
 import QlabSection from '../../components/landing/QlabSection.astro';
-import CTASection from '../../components/landing/CTASection.astro';
 import FooterLanding from '../../components/landing/FooterLanding.astro';
 
 <TerminalDemo />
@@ -42,6 +45,6 @@ import FooterLanding from '../../components/landing/FooterLanding.astro';
 
 <QlabSection />
 
-<CTASection />
+{/* <CTASection /> — réactiver quand plus de logos disponibles */}
 
 <FooterLanding />

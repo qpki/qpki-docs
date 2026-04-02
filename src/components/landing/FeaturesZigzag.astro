@@ -1,7 +1,7 @@
 ---
 /**
- * FeaturesZigzag - Alternating left/right feature blocks
- * Each feature has text + code snippet or illustration
+ * FeaturesCarousel - Horizontal scroll-snap carousel of feature cards
+ * Each card has text + code snippet
  */
 ---
 
@@ -10,38 +10,44 @@
     <h2 class="section-title">Built for the Quantum Era</h2>
     <p class="section-subtitle">What makes QPKI different.</p>
 
-    <!-- Feature 1: Post-Quantum Ready -->
-    <div class="feature-row fade-in">
-      <div class="feature-text">
-        <span class="feature-badge">Core</span>
-        <h3>Post-Quantum Ready</h3>
-        <p>PQC via Cloudflare CIRCL. ML-DSA for signatures, ML-KEM for key encapsulation, SLH-DSA for hash-based signatures. PQ & hybrid certificates cross-tested with OpenSSL and BouncyCastle.</p>
-        <a href="/qpki/getting-started/post-quantum/" class="feature-link">Explore post-quantum algorithms &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Generate ML-DSA key pair</span>
+    <div class="carousel-wrapper">
+      <!-- Fade edges -->
+      <div class="carousel-fade carousel-fade-left" aria-hidden="true"></div>
+      <div class="carousel-fade carousel-fade-right" aria-hidden="true"></div>
+
+      <div class="carousel-track">
+        <!-- Card 1: Post-Quantum Ready -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge">Core</span>
+            <h3>Post-Quantum Ready</h3>
+            <p>PQC via Cloudflare CIRCL. ML-DSA for signatures, ML-KEM for key encapsulation, SLH-DSA for hash-based signatures. PQ & hybrid certificates cross-tested with OpenSSL and BouncyCastle.</p>
+            <a href="/qpki/getting-started/post-quantum/" class="feature-link">Explore post-quantum algorithms &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Generate ML-DSA key pair</span>
 <span class="p">$</span> qpki key generate \
     --algorithm <span class="h">ml-dsa-65</span> \
     --out root-ca.key
 <span class="o">&#10003; ML-DSA-65 key pair generated</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 2: Hybrid Certificates (reversed) -->
-    <div class="feature-row reversed fade-in">
-      <div class="feature-text">
-        <span class="feature-badge blue">Migration</span>
-        <h3>Hybrid Certificates</h3>
-        <p>Dual-algorithm certificates combine classical with post-quantum algorithms. Two hybrid strategies: Catalyst for gradual migration and Composite for full dual-algorithm binding. Deploy hybrid TLS/mTLS for your servers, APIs, and IoT. Backward compatible with existing infrastructure while quantum-safe.</p>
-        <a href="/qpki/migration/hybrid/" class="feature-link">Hybrid certificate formats &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Generate hybrid CSR (Catalyst mode)</span>
+        <!-- Card 2: Hybrid Certificates -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge blue">Migration</span>
+            <h3>Hybrid Certificates</h3>
+            <p>Dual-algorithm certificates combine classical with post-quantum algorithms. Two hybrid strategies: Catalyst for gradual migration and Composite for full dual-algorithm binding. Deploy hybrid TLS/mTLS for your servers, APIs, and IoT. Backward compatible with existing infrastructure while quantum-safe.</p>
+            <a href="/qpki/migration/hybrid/" class="feature-link">Hybrid certificate formats &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Generate hybrid CSR (Catalyst mode)</span>
 <span class="p">$</span> qpki csr gen \
     --algorithm <span class="h">ecdsa-p256</span> \
     --hybrid <span class="h">ml-dsa-65</span> \
@@ -53,22 +59,22 @@
     --profile <span class="h">hybrid/catalyst/tls-server</span> \
     --csr hybrid.csr
 <span class="o">&#10003; Hybrid certificate issued</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 3: Crypto-Agile -->
-    <div class="feature-row fade-in">
-      <div class="feature-text">
-        <span class="feature-badge green">Agility</span>
-        <h3>Crypto-Agile by Design</h3>
-        <p>Each credential bundles multiple certificates — classical and post-quantum — with a coupled lifecycle. Enroll today, rotate to new algorithms tomorrow. Declarative profiles make migration a one-line operation.</p>
-        <a href="/qpki/migration/crypto-agility/" class="feature-link">Crypto-agility migration guide &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Enroll with classical crypto</span>
+        <!-- Card 3: Crypto-Agile -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge green">Agility</span>
+            <h3>Crypto-Agile by Design</h3>
+            <p>Each credential bundles multiple certificates — classical and post-quantum — with a coupled lifecycle. Enroll today, rotate to new algorithms tomorrow. Declarative profiles make migration a one-line operation.</p>
+            <a href="/qpki/migration/crypto-agility/" class="feature-link">Crypto-agility migration guide &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Enroll with classical crypto</span>
 <span class="p">$</span> qpki credential enroll <span class="h">api-server</span> \
     --profile <span class="h">ec/tls-server</span> ...
 <span class="o">&#10003; Credential enrolled · ECDSA-P256</span>
@@ -77,43 +83,43 @@
 <span class="p">$</span> qpki credential rotate <span class="h">api-server</span> \
     --profile <span class="h">ml/tls-server</span>
 <span class="o">&#10003; Rotated to ML-DSA-65</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 4: HSM Support (reversed) -->
-    <div class="feature-row reversed fade-in">
-      <div class="feature-text">
-        <span class="feature-badge purple">Enterprise</span>
-        <h3>HSM Ready</h3>
-        <p>PKCS#11 integration for hardware security modules. Keep private keys in tamper-resistant hardware. Works with air-gapped and FIPS-validated environments.</p>
-        <a href="/qpki/operations/hsm/" class="feature-link">HSM integration guide &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Initialize CA with HSM-backed keys</span>
+        <!-- Card 4: HSM Support -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge purple">Enterprise</span>
+            <h3>HSM Ready</h3>
+            <p>PKCS#11 integration for hardware security modules. Keep private keys in tamper-resistant hardware. Works with air-gapped and FIPS-validated environments.</p>
+            <a href="/qpki/operations/hsm/" class="feature-link">HSM integration guide &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Initialize CA with HSM-backed keys</span>
 <span class="p">$</span> qpki ca init \
     --profile ml/root-ca \
     --hsm-config <span class="h">hsm.yaml</span> \
     --key-label "pq-root-ca"
 <span class="o">&#10003; Root CA created · key stored in HSM</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 5: Document Signing -->
-    <div class="feature-row fade-in">
-      <div class="feature-text">
-        <span class="feature-badge indigo">Signature</span>
-        <h3>Document Signing</h3>
-        <p>CMS signatures with ML-DSA produce detached <code>.p7s</code> proofs that travel alongside any file — contracts, invoices, firmware. Classical signatures can be forged retroactively once quantum computers arrive; ML-DSA signatures remain unforgeable. Verify in one command, no proprietary tooling required.</p>
-        <a href="/qpki/services/cms/" class="feature-link">CMS signing &amp; verification &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Sign document with ML-DSA</span>
+        <!-- Card 5: Document Signing -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge indigo">Signature</span>
+            <h3>Document Signing</h3>
+            <p>CMS signatures with ML-DSA produce detached <code>.p7s</code> proofs that travel alongside any file — contracts, invoices, firmware. Classical signatures can be forged retroactively once quantum computers arrive; ML-DSA signatures remain unforgeable. Verify in one command, no proprietary tooling required.</p>
+            <a href="/qpki/services/cms/" class="feature-link">CMS signing &amp; verification &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Sign document with ML-DSA</span>
 <span class="p">$</span> qpki cms sign \
     --data <span class="h">contract.pdf</span> \
     --credential signer \
@@ -124,43 +130,43 @@
 <span class="p">$</span> qpki cms verify contract.p7s \
     --data contract.pdf --ca ca.crt
 <span class="o">&#10003; Valid · ML-DSA-65</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 6: CMS Encryption (reversed) -->
-    <div class="feature-row reversed fade-in">
-      <div class="feature-text">
-        <span class="feature-badge orange">Encryption</span>
-        <h3>Data Encryption</h3>
-        <p>CMS encryption with ML-KEM key encapsulation. Protect sensitive data at rest and in transit against future quantum decryption. RFC 9880 (ML-KEM in CMS) and RFC 9883 attestation for KEM enrollment.</p>
-        <a href="/qpki/services/cms/" class="feature-link">CMS encryption with ML-KEM &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Encrypt document with ML-KEM</span>
+        <!-- Card 6: CMS Encryption -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge orange">Encryption</span>
+            <h3>Data Encryption</h3>
+            <p>CMS encryption with ML-KEM key encapsulation. Protect sensitive data at rest and in transit against future quantum decryption. RFC 9880 (ML-KEM in CMS) and RFC 9883 attestation for KEM enrollment.</p>
+            <a href="/qpki/services/cms/" class="feature-link">CMS encryption with ML-KEM &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Encrypt document with ML-KEM</span>
 <span class="p">$</span> qpki cms encrypt \
     --recipient <span class="h">alice-ml-kem.crt</span> \
     --in report.pdf \
     --out report.pdf.p7m
 <span class="o">&#10003; Encrypted with ML-KEM-768</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 7: PQC Timestamping -->
-    <div class="feature-row fade-in">
-      <div class="feature-text">
-        <span class="feature-badge cyan">Long-Term</span>
-        <h3>Quantum-Proof Timestamps</h3>
-        <p>RFC 3161 timestamping with ML-DSA. Classical timestamps can be forged once quantum computers break their signatures — PQC timestamps remain unforgeable against quantum attacks. Built-in HTTP server for production deployment.</p>
-        <a href="/qpki/services/tsa/" class="feature-link">RFC 3161 timestamping docs &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Timestamp a document with ML-DSA</span>
+        <!-- Card 7: PQC Timestamping -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge cyan">Long-Term</span>
+            <h3>Quantum-Proof Timestamps</h3>
+            <p>RFC 3161 timestamping with ML-DSA. Classical timestamps can be forged once quantum computers break their signatures — PQC timestamps remain unforgeable against quantum attacks. Built-in HTTP server for production deployment.</p>
+            <a href="/qpki/services/tsa/" class="feature-link">RFC 3161 timestamping docs &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Timestamp a document with ML-DSA</span>
 <span class="p">$</span> qpki tsa sign \
     --data <span class="h">contract.pdf</span> \
     --credential tsa \
@@ -171,22 +177,22 @@
 <span class="p">$</span> qpki tsa verify --token contract.tsr \
     --data contract.pdf --ca ca.crt
 <span class="o">&#10003; Valid · 2026-03-17T14:30:00Z</span></code></pre>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Feature 8: Post-Quantum Authentication (reversed) -->
-    <div class="feature-row reversed fade-in">
-      <div class="feature-text">
-        <span class="feature-badge yellow">Identity / IAM</span>
-        <h3>Secure Tokens</h3>
-        <p>COSE/CWT tokens signed with ML-DSA for identity, access control, and device attestation. Compact binary format ideal for IoT and constrained environments. Hybrid mode ensures backward compatibility with existing infrastructure.</p>
-        <a href="/qpki/services/cose/" class="feature-link">COSE/CWT token guide &rarr;</a>
-      </div>
-      <div class="feature-code">
-        <div class="mini-terminal">
-          <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
-          <pre><code><span class="c"># Issue PQ auth token (CWT)</span>
+        <!-- Card 8: Secure Tokens -->
+        <div class="carousel-card">
+          <div class="feature-text">
+            <span class="feature-badge yellow">Identity / IAM</span>
+            <h3>Secure Tokens</h3>
+            <p>COSE/CWT tokens signed with ML-DSA for identity, access control, and device attestation. Compact binary format ideal for IoT and constrained environments. Hybrid mode ensures backward compatibility with existing infrastructure.</p>
+            <a href="/qpki/services/cose/" class="feature-link">COSE/CWT token guide &rarr;</a>
+          </div>
+          <div class="feature-code">
+            <div class="mini-terminal">
+              <div class="mini-header" aria-hidden="true"><span class="dot-sm"></span><span class="dot-sm"></span><span class="dot-sm"></span></div>
+              <pre><code><span class="c"># Issue PQ auth token (CWT)</span>
 <span class="p">$</span> qpki cose sign \
     --cert <span class="h">auth-server.crt</span> \
     --key auth-server.key \
@@ -195,8 +201,30 @@
     --exp 1h \
     -o <span class="h">auth-token.cbor</span>
 <span class="o">&#10003; CWT signed with ML-DSA-65</span></code></pre>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Navigation dots -->
+      <div class="carousel-dots" aria-label="Feature navigation">
+        <button class="carousel-dot active" aria-label="Feature 1" data-index="0"></button>
+        <button class="carousel-dot" aria-label="Feature 2" data-index="1"></button>
+        <button class="carousel-dot" aria-label="Feature 3" data-index="2"></button>
+        <button class="carousel-dot" aria-label="Feature 4" data-index="3"></button>
+        <button class="carousel-dot" aria-label="Feature 5" data-index="4"></button>
+        <button class="carousel-dot" aria-label="Feature 6" data-index="5"></button>
+        <button class="carousel-dot" aria-label="Feature 7" data-index="6"></button>
+        <button class="carousel-dot" aria-label="Feature 8" data-index="7"></button>
+      </div>
+
+      <!-- Arrow buttons -->
+      <button class="carousel-arrow carousel-arrow-left" aria-label="Previous feature">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="carousel-arrow carousel-arrow-right" aria-label="Next feature">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -221,40 +249,136 @@
     color: var(--sl-color-gray-3);
     font-size: 1.125rem;
     max-width: 550px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
   }
 
-  .feature-row {
+  /* Carousel wrapper */
+  .carousel-wrapper {
+    position: relative;
+  }
+
+  /* Track */
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding: 0.5rem 0.5rem 1.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Cards */
+  .carousel-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: center;
-    margin-bottom: 3rem;
     padding: 2rem;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     background: rgba(255, 255, 255, 0.02);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .feature-row:hover {
+  .carousel-card:hover {
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
     border-color: rgba(255, 85, 163, 0.15);
-    transform: translateY(-2px);
   }
 
-  .feature-row:last-child {
-    margin-bottom: 0;
+  /* Fade edges */
+  .carousel-fade {
+    position: absolute;
+    top: 0;
+    bottom: 2.5rem;
+    width: 3rem;
+    z-index: 2;
+    pointer-events: none;
   }
 
-  .feature-row.reversed .feature-text {
-    order: 2;
+  .carousel-fade-left {
+    left: 0;
+    background: linear-gradient(90deg, var(--sl-color-bg) 0%, transparent 100%);
   }
 
-  .feature-row.reversed .feature-code {
-    order: 1;
+  .carousel-fade-right {
+    right: 0;
+    background: linear-gradient(-90deg, var(--sl-color-bg) 0%, transparent 100%);
   }
 
+  /* Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--sl-color-gray-5);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+  }
+
+  .carousel-dot.active {
+    background: #FF55A3;
+    transform: scale(1.25);
+  }
+
+  .carousel-dot:hover:not(.active) {
+    background: var(--sl-color-gray-4);
+  }
+
+  /* Arrow buttons */
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(calc(-50% - 1.25rem));
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-bg);
+    color: var(--sl-color-gray-3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: all 0.2s ease;
+    opacity: 0;
+  }
+
+  .carousel-wrapper:hover .carousel-arrow {
+    opacity: 1;
+  }
+
+  .carousel-arrow:hover {
+    border-color: #FF55A3;
+    color: #FF55A3;
+    background: rgba(255, 85, 163, 0.05);
+  }
+
+  .carousel-arrow-left {
+    left: -18px;
+  }
+
+  .carousel-arrow-right {
+    right: -18px;
+  }
+
+  /* Feature text */
   .feature-badge {
     display: inline-block;
     font-size: 0.7rem;
@@ -316,17 +440,12 @@
     font-weight: 700;
     color: var(--sl-color-white);
     margin-bottom: 0.75rem;
-    transition: color 0.2s ease;
-  }
-
-  .feature-row:hover .feature-text h3 {
-    color: #FF55A3;
   }
 
   .feature-text p {
     color: var(--sl-color-gray-3);
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .feature-link {
@@ -388,12 +507,12 @@
   .mini-terminal .o { color: #22c55e; }
 
   /* Light mode */
-  :root[data-theme='light'] .feature-row {
+  :root[data-theme='light'] .carousel-card {
     background: rgba(0, 0, 0, 0.03);
     border-color: rgba(0, 0, 0, 0.1);
   }
 
-  :root[data-theme='light'] .feature-row:hover {
+  :root[data-theme='light'] .carousel-card:hover {
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
     border-color: rgba(255, 85, 163, 0.2);
   }
@@ -417,23 +536,25 @@
   :root[data-theme='light'] .mini-terminal .p { color: #0B3D91; }
   :root[data-theme='light'] .mini-terminal .h { color: #0B3D91; }
 
+  :root[data-theme='light'] .carousel-arrow {
+    background: #fff;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
-    .feature-row {
+    .carousel-card {
+      flex: 0 0 92%;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      margin-bottom: 2rem;
       padding: 1.25rem;
     }
 
-    .feature-row.reversed .feature-text,
-    .feature-row.reversed .feature-code {
-      order: unset;
+    .carousel-arrow {
+      display: none;
     }
 
-    .feature-code {
-      overflow: hidden;
-      max-width: 100%;
+    .carousel-fade {
+      width: 1.5rem;
     }
 
     .mini-terminal pre {
@@ -449,4 +570,74 @@
       font-size: 1.75rem;
     }
   }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+      scroll-behavior: auto;
+    }
+
+    .carousel-dot,
+    .carousel-arrow,
+    .carousel-card {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const cards = document.querySelectorAll('.carousel-card');
+  const arrowLeft = document.querySelector('.carousel-arrow-left');
+  const arrowRight = document.querySelector('.carousel-arrow-right');
+
+  if (track && dots.length && cards.length) {
+    // Update dots on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(cards).indexOf(entry.target);
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === index);
+            });
+          }
+        });
+      },
+      {
+        root: track,
+        threshold: 0.6,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    // Click on dots
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = Number(dot.getAttribute('data-index'));
+        cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      });
+    });
+
+    // Arrow navigation
+    function scrollToCard(direction: number) {
+      const activeIndex = Array.from(dots).findIndex((d) => d.classList.contains('active'));
+      const nextIndex = Math.max(0, Math.min(cards.length - 1, activeIndex + direction));
+      cards[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    arrowLeft?.addEventListener('click', () => scrollToCard(-1));
+    arrowRight?.addEventListener('click', () => scrollToCard(1));
+
+    // Keyboard navigation
+    track.setAttribute('tabindex', '0');
+    track.setAttribute('role', 'region');
+    track.setAttribute('aria-label', 'Feature carousel');
+    track.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') { scrollToCard(-1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { scrollToCard(1); e.preventDefault(); }
+    });
+  }
+</script>
