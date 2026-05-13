@@ -378,13 +378,16 @@ img[src*="github.com"][src*="badge"] {
 }
 
 [data-has-hero] .actions .sl-link-button.minimal {
-	color: var(--q-color-info);
+	background: var(--q-color-info);
+	color: #ffffff;
+	box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 	transition: all 0.2s ease;
 }
 
 [data-has-hero] .actions .sl-link-button.minimal:hover {
+	color: #ffffff;
+	box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
 	transform: translateY(-1px);
-	background: rgba(59, 130, 246, 0.1);
 }
 
 /* Landing sections — full width content */
