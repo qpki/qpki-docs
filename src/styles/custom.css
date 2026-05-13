@@ -377,6 +377,16 @@ img[src*="github.com"][src*="badge"] {
 	background: rgba(255, 255, 255, 0.05);
 }
 
+[data-has-hero] .actions .sl-link-button.minimal {
+	color: var(--q-color-info);
+	transition: all 0.2s ease;
+}
+
+[data-has-hero] .actions .sl-link-button.minimal:hover {
+	transform: translateY(-1px);
+	background: rgba(59, 130, 246, 0.1);
+}
+
 /* Landing sections — full width content */
 [data-has-hero] .sl-markdown-content {
 	max-width: 100% !important;
