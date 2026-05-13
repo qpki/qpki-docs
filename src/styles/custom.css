@@ -354,6 +354,11 @@ img[src*="github.com"][src*="badge"] {
 	}
 }
 
+/* Hero CTAs: icons on the left (override Starlight default 'end' placement) */
+[data-has-hero] .actions .sl-link-button {
+	flex-direction: row-reverse;
+}
+
 /* Actions buttons - style premium */
 [data-has-hero] .actions .sl-link-button.primary {
 	background: linear-gradient(135deg, #FF55A3, #E04A90);
