@@ -113,14 +113,6 @@ export default defineConfig({
 								{ slug: 'qpki/reference/glossary' },
 							],
 						},
-						{
-							label: 'Development',
-							collapsed: true,
-							items: [
-								{ slug: 'qpki/dev/architecture' },
-								{ slug: 'qpki/dev/contributing' },
-							],
-						},
 					],
 				},
 				{
